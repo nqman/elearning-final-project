@@ -1,0 +1,120 @@
+/* FOOTER  */
+.logoContainer {
+  a {
+    text-decoration: none;
+  }
+}
+.textLogo {
+  color: #252525;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  transition: all 0.3s;
+  text-shadow: 5px -2px 3px #54d2c0;
+  font-weight: bolder;
+  &:hover {
+    transition: all 0.5s;
+    transform: scale(1.05);
+  }
+  .textE {
+    font-size: 40px;
+    color: #41b294;
+    font-weight: bold;
+  }
+  .iconLogo {
+    right: 2px;
+    top: 10px;
+    position: absolute;
+  }
+}
+
+.divider {
+  border-top: 1px solid #000;
+}
+.textFooterTitle {
+  font-weight: bold;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.menuFooter {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      padding: 5px 0;
+      font-weight: 500;
+      list-style: none;
+      text-align: left;
+      transition: all 0.3s;
+      &:hover {
+        transition: all 0.5s;
+        transform: scale(1.05);
+      }
+      p {
+      }
+    }
+  }
+}
+.textCardTitle {
+  ul {
+    list-style: none;
+    li {
+      &:hover {
+        transform: translateY(-2px);
+        color: #01877e;
+        cursor: default;
+        list-style: none;
+      }
+    }
+  }
+}
+.formFooter {
+  margin: 3px 0;
+  outline: none;
+  border: none;
+  width: 300px;
+  max-width: 100%;
+  border-radius: 8px;
+  padding-left: 10px;
+}
+input {
+  &:focus {
+    transform: translateX(-2px);
+    border-radius: 5px;
+  }
+}
+.extraFooter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 5px 50px;
+  background-color: #f0f8ff;
+  overflow: hidden;
+  height: 100%;
+}
+.extraFooters {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 5px 50px;
+  background-color: #f0f8ff;
+  border-top: 1px solid #d0d0d0;
+  overflow: hidden;
+}
+
+.iconFooter {
+  display: inline-block;
+}
+.iconSize {
+  line-height: 30px;
+  color: #fff;
+  background: #41b294;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 5px;
+  padding: 5px;
+  &:hover {
+    box-shadow: 1px 2px 2px 1px #636363;
+  }
+}

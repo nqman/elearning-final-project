@@ -1,0 +1,165 @@
+.feedback {
+  padding: 75px 60px;
+  margin-top: 5px;
+  position: relative;
+  .triangleBox {
+    position: absolute;
+    top: 12%;
+    left: 7%;
+    border-bottom: 45px solid #f6ba35;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    transform: rotate(-45deg);
+  }
+  .dot1Box {
+    position: absolute;
+    top: 12%;
+    left: 7%;
+    height: 70px;
+    background-size: 10px 10px;
+    width: 10%;
+    background-image: radial-gradient(#41b294 10%, transparent 11%),
+      radial-gradient(#41b294 10%, transparent 11%);
+  }
+  .dot2Box {
+    position: absolute;
+    bottom: 5%;
+    right: 62%;
+    height: 100px;
+    background-size: 10px 10px;
+    width: 100px;
+    border-radius: 100%;
+    background-image: radial-gradient(#41b294 10%, transparent 11%),
+      radial-gradient(#41b294 10%, transparent 11%);
+  }
+  .dot3Box {
+    background-size: 10px 10px;
+    height: 60px;
+    left: 53%;
+    position: absolute;
+    top: 3%;
+    width: 80px;
+    background-image: radial-gradient(#16a34a 10%, transparent 11%),
+      radial-gradient(#16a34a 10%, transparent 11%);
+  }
+  .dot4Box {
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    height: 70px;
+    background-size: 10px 10px;
+    width: 10%;
+
+    background-image: radial-gradient(#f6ba35 10%, transparent 11%),
+      radial-gradient(#f6ba35 10%, transparent 11%);
+  }
+
+  .angle {
+    transform: rotate(-45deg);
+    position: absolute;
+    top: -3px;
+    left: 2px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 50px solid #f6ba35;
+  }
+
+  .s_box {
+    position: absolute;
+    z-index: 1;
+    height: 10%;
+    width: 10%;
+    background-image: radial-gradient(#41b294 10%, transparent 11%),
+      radial-gradient(#41b294 10%, transparent 11%);
+    background-size: 10px 10px;
+  }
+
+  .box_left {
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 10%;
+  }
+
+  .box_bottom {
+    width: 80px;
+    border-radius: 50%;
+    bottom: 0;
+    left: 30%;
+    height: 80px;
+  }
+
+  .box_right {
+    width: 80px;
+    top: 0;
+    right: 40%;
+    height: 50px;
+  }
+
+  .sbox_right {
+    bottom: 0;
+    right: 10%;
+    height: 50px;
+    background-image: radial-gradient(#f6ba35 10%, transparent 11%);
+  }
+
+  .feedback_content {
+    .content_left {
+      .about {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+      }
+      .review_Img {
+        position: relative;
+        background-color: #ed85ab;
+        width: 250px;
+        height: 250px;
+        line-height: 250px;
+        text-align: center;
+        border-radius: 5px 50% 50% 50%;
+        z-index: 10;
+      }
+      .bg_img {
+        width: 200px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .content_right {
+      position: relative;
+      .blockquote {
+        .fz {
+          font-size: 15px;
+          line-height: 28px;
+          font-weight: 500;
+          text-align: justify;
+        }
+        .zoom {
+          color: #ed85ab;
+          font-family: fantasy;
+          font-size: 60px;
+          left: -2%;
+          position: absolute;
+          top: 10%;
+        }
+        .colorp2 {
+          color: #ed85ab;
+          margin: 0;
+        }
+        .spann {
+          color: gray;
+        }
+      }
+    }
+  }
+}
