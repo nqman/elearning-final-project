@@ -1,0 +1,28 @@
+.boxContent {
+  @apply container mx-auto;
+  .boxItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      display: block;
+      width: 100px;
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: 900;
+      background: linear-gradient(to right, #227df9, #7462f9, #df3ef8);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      display: inline-block;
+    }
+    p {
+      font-weight: 900;
+      font-size: 20px;
+      background: linear-gradient(to right, #7122f9, #7462f9, #f83ee2);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+    }
+  }
+}
