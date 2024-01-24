@@ -38,10 +38,13 @@ const Teachers = () => {
       },
     ],
     appendDots: (dots) => {
-      return <ul style={{ bottom: "-7%" }}>{dots}</ul>;
+      return (
+        <ul style={{ display: "flex", justifyContent: "center", marginLeft: "10px" }}>{dots}</ul>
+      );
     },
     customPaging: (pagi, i) => {
       const style = {
+        margin: 10,
         width: 10,
         height: 10,
         borderRadius: "100%",
@@ -68,7 +71,7 @@ const Teachers = () => {
                 alt="teacher e learing"
               />
             </div>
-            <h3 className="text-lg mb-5 font-semibold">Big DadMoon</h3>
+            <h3 className="text-lg mb-2 font-semibold">Big DadMoon</h3>
             <p className="h-14 overflow-hidden">Chuyên gia lĩnh vực lập trình</p>
             <div className="flex items-center justify-center">
               <Rate className="text-lg" disabled defaultValue={5} allowHalf count={5} />
@@ -87,7 +90,7 @@ const Teachers = () => {
                 alt="teacher e learing"
               />
             </div>
-            <h3 className="text-lg mb-5 font-semibold">IcarDi MenBor</h3>
+            <h3 className="text-lg mb-2 font-semibold">IcarDi MenBor</h3>
             <p className="h-14 overflow-hidden">Chuyên gia Vue Js</p>
             <div className="flex items-center justify-center">
               <Rate className="text-lg" disabled defaultValue={5} allowHalf count={5} />
@@ -106,7 +109,7 @@ const Teachers = () => {
                 alt="teacher e learing"
               />
             </div>
-            <h3 className="text-lg mb-5 font-semibold">Bladin Slaham</h3>
+            <h3 className="text-lg mb-2 font-semibold">Bladin Slaham</h3>
             <p className="h-14 overflow-hidden">Chuyên gia hệ thống máy tính</p>
             <div className="flex items-center justify-center">
               <Rate className="text-lg" disabled defaultValue={5} allowHalf count={5} />
@@ -125,7 +128,7 @@ const Teachers = () => {
                 alt="teacher e learing"
               />
             </div>
-            <h3 className="text-lg mb-5 font-semibold">Chris Andersan</h3>
+            <h3 className="text-lg mb-2 font-semibold">Chris Andersan</h3>
             <p className="h-14 overflow-hidden">Chuyên gia lĩnh vực Full Skill</p>
             <div className="flex items-center justify-center">
               <Rate className="text-lg" disabled defaultValue={4.5} allowHalf count={5} />
@@ -144,7 +147,7 @@ const Teachers = () => {
                 alt="teacher e learing"
               />
             </div>
-            <h3 className="text-lg mb-5 font-semibold">VueLo Gadi</h3>
+            <h3 className="text-lg mb-2 font-semibold">VueLo Gadi</h3>
             <p className="h-14 overflow-hidden">Chuyên gia lĩnh vực Phân tích</p>
             <div className="flex items-center justify-center">
               <Rate className="text-lg" disabled defaultValue={5} allowHalf count={5} />
@@ -163,7 +166,7 @@ const Teachers = () => {
                 alt="teacher e learing"
               />
             </div>
-            <h3 className="text-lg mb-5 font-semibold">Hoàng Nam</h3>
+            <h3 className="text-lg mb-2 font-semibold">Hoàng Nam</h3>
             <p className="h-14 overflow-hidden">Chuyên gia lĩnh vực PHP</p>
             <div className="flex items-center justify-center">
               <Rate className="text-lg" disabled defaultValue={4.5} allowHalf count={5} />
@@ -182,7 +185,7 @@ const Teachers = () => {
                 alt="teacher e learing"
               />
             </div>
-            <h3 className="text-lg mb-5 font-semibold">David Ngô Savani</h3>
+            <h3 className="text-lg mb-2 font-semibold">David Ngô Savani</h3>
             <p className="h-14 overflow-hidden">Chuyên gia lĩnh vực Front End</p>
             <div className="flex items-center justify-center">
               <Rate className="text-lg" disabled defaultValue={5} allowHalf count={5} />
