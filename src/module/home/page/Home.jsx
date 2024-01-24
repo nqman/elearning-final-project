@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../../components/Header/Header";
-import Footer from "../../../components/Footer/Footer";
 import Welcome from "../components/Welcome/Welcome";
 import InfoCourse from "../components/InfoCourse/InfoCourse";
 import CourseList from "../components/CourseList/CourseList";
@@ -12,7 +10,6 @@ import Teacher from "../components/Teacher";
 export default function Home() {
   return (
     <div>
-      <Header />
       <Welcome />
       <InfoCourse />
       <CourseList />
@@ -20,7 +17,6 @@ export default function Home() {
       <Countup />
       <Teacher />
       <FeedBack />
-      <Footer />
     </div>
   );
 }
