@@ -15,7 +15,7 @@ export default function Signin() {
       taiKhoan: "",
       matKhau: "",
     },
-    mode: "onBlur",
+    mode: "onSubmit",
   });
   const [searchParams] = useSearchParams();
 
@@ -56,7 +56,6 @@ export default function Signin() {
     const url = searchParams.get("from") || "/";
     return <Navigate to={url} replace />;
   }
-
   return (
     <div className={`${formStyles.form}`}>
       <div>
@@ -70,12 +69,14 @@ export default function Signin() {
               {"("}Hoặc sử dụng tài khoản bạn vừa đăng ký{")"}
             </p>
             <div className={`${formStyles.form_input}`}>
-              <input
-                placeholder="Tài Khoản"
-                {...register("taiKhoan")}
-                className="w-full p-3 duration-300 rounded-md outline-none"
-              />
-              {errors.taiKhoan && <p className="text-red-500">{errors.taiKhoan.message}</p>}
+              <div className="rounded-md shadow-md">
+                <input
+                  placeholder="Tài Khoản"
+                  {...register("taiKhoan")}
+                  className="w-full p-3 duration-300 rounded-md outline-none"
+                />
+                {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
+              </div>
             </div>
             <div className={`${formStyles.form_input}`}>
               <input
@@ -84,14 +85,13 @@ export default function Signin() {
                 placeholder="Mật Khẩu"
                 {...register("matKhau")}
               />
-              {errors.matKhau && <p className="text-red-500">{errors.matKhau.message}</p>}
+              {errors.matKhau && <p>{errors.matKhau.message}</p>}
             </div>
 
             <div className="text-center mt-4">
-              <button className="btn btn-success btn-lg" type="submit" disabled={isLoading}>
+              <button className="btn btn-success btn-lg " type="submit" disabled={isLoading}>
                 Đăng Nhập
               </button>
-              {error && <p className="text-red-500">{error}</p>}
             </div>
           </div>
         </form>
