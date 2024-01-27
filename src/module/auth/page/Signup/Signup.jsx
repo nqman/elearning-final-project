@@ -31,6 +31,7 @@ export default function Signup() {
       hoTen: "",
       email: "",
       soDt: "",
+      manhom: "",
     },
     resolver: yupResolver(validationSchema),
   });
@@ -39,12 +40,12 @@ export default function Signup() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSignup = async (values) => {
+  const handleSignup = async (credentials) => {
     try {
       setIsLoading(true);
       setError(null);
-      await signupAPI(values);
-      navigate("/sign-in");
+      await signupAPI(credentials);
+      navigate("/");
     } catch (error) {
       setError(error);
     } finally {
@@ -63,58 +64,39 @@ export default function Signup() {
           <h1 className="mb-2 text-4xl font-semibold">Đăng nhập</h1>
           {/* TÀI KHOẢN INPUT  */}
           <div className={`${formStyles.form_input}`}>
-            <label>Tài Khoản</label>
-            <input
-              className="w-full p-3 duration-300 rounded-md outline-none"
-              type="text"
-              placeholder="Tài Khoản"
-              {...register("taiKhoan")}
-            />
-            {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
+            <input type="text" placeholder="Tài Khoản" {...register("taiKhoan")} />
+            {errors.taiKhoan && (
+              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm">
+                {errors.taiKhoan.message}
+              </span>
+            )}
           </div>
           {/* MẬT KHẨU INPUT  */}
           <div className={`${formStyles.form_input}`}>
-            <label>Mật Khẩu</label>
-            <input
-              className="w-full p-3 duration-300 rounded-md outline-none"
-              type="password"
-              placeholder="Mật khẩu"
-              {...register("matKhau")}
-            />
+            <input type="password" placeholder="Mật khẩu" {...register("matKhau")} />
             {errors.matKhau && <span>{errors.matKhau.message}</span>}
           </div>
           {/* EMAIL INPUT  */}
           <div className={`${formStyles.form_input}`}>
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full p-3 duration-300 rounded-md outline-none"
-              {...register("email")}
-            />
+            <input type="email" placeholder="Email" {...register("email")} />
             {errors.email && <span>{errors.email.message}</span>}
           </div>
           {/* HỌ TÊN INPUT */}
           <div className={`${formStyles.form_input}`}>
-            <label>Họ Tên</label>
-            <input
-              type="text"
-              placeholder="Họ tên"
-              className="w-full p-3 duration-300 rounded-md outline-none"
-              {...register("hoTen")}
-            />
+            <input type="text" placeholder="Họ tên" {...register("hoTen")} />
             {errors.hoTen && <span>{errors.hoTen.message}</span>}
           </div>
           {/* SĐT INPUT */}
           <div className={`${formStyles.form_input}`}>
-            <label>Số Điện Thoại</label>
-            <input
-              type="text"
-              placeholder="SĐT"
-              className="w-full p-3 duration-300 rounded-md outline-none"
-              {...register("soDt")}
-            />
+            <input type="text" placeholder="SĐT" {...register("soDt")} />
             {errors.soDt && <span>{errors.soDt.message}</span>}
+          </div>
+          <div className={`${formStyles.form_input}`}>
+            <select {...register("manhom")}>
+              <option value="GP01">GP01</option>
+              <option value="GP02">GP02</option>
+              <option value="GP03">GP03</option>
+            </select>
           </div>
 
           {error && <p>{error}</p>}

@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { signinAPI } from "../../../apis/userAPI";
 
-export const signin = createAsyncThunk("auth/signin", async (values) => {
-  const data = await signinAPI(values);
+export const signin = createAsyncThunk("auth/signin", async (credentials) => {
+  const data = await signinAPI(credentials);
   // Lưu thông tin đăng nhập vào localStorage
-  localStorage.setItem("currentUser", JSON.stringify(data));
+  localStorage.setItem("currentUser", JSON.stringify(credentials));
   return data;
 });
 const authSlice = createSlice({
