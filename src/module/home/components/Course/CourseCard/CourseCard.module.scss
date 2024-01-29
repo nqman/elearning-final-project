@@ -1,0 +1,74 @@
+.card {
+  transition: all 0.5s;
+  width: 90%;
+  min-width: 280px;
+  min-height: 370px;
+  position: relative;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+  > img {
+    height: 185px;
+    min-height: 185px;
+  }
+  .stiker {
+    position: absolute;
+    z-index: 10;
+    top: 174px;
+    padding: 0 10px;
+    background-color: #41b294;
+  }
+  .card_body {
+    padding: 20px;
+    h6 {
+      font-size: 16px;
+    }
+    .title_maker {
+      .img_footer {
+        height: 40px;
+        width: 40px;
+        padding: 2px;
+        border-color: #f6ba35 transparent;
+        border-left: 1px solid transparent;
+        border-bottom: 1px solid #f6ba35;
+        border-right: 1px solid transparent;
+        border-top: 1px solid #f6ba35;
+        border-radius: 50%;
+      }
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+  }
+  .card_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    p:first-of-type {
+      font-size: 12px;
+      color: #8c8c8c;
+      text-decoration-line: line-through;
+    }
+    p:nth-child(2) {
+      font-weight: 500;
+      color: #41b294;
+    }
+    .danh_gia {
+      i {
+        color: #f6ba35;
+      }
+      .text_star {
+        color: #f6ba35;
+      }
+      .number_people {
+        font-size: 12px;
+        color: #8c8c8c;
+      }
+    }
+  }
+}

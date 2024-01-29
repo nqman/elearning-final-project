@@ -1,0 +1,43 @@
+#course {
+  .course_container {
+    .container {
+      .course_box {
+        align-items: center;
+        text-align: center;
+        color: white;
+        i {
+          font-size: 2rem !important;
+          margin: 3px 0 3px 0;
+        }
+      }
+      .bgs-1 {
+        background-color: #264653;
+      }
+      .bgs-2 {
+        background-color: #2a9d8f;
+      }
+      .bgs-3 {
+        background-color: #e9c46a;
+      }
+      .bgs-4 {
+        background-color: #f4a261;
+      }
+      .bgs-5 {
+        background-color: #ee8959;
+      }
+      .bgs-6 {
+        background-color: #e76f51;
+      }
+    }
+  }
+  .course_list {
+    .list_info {
+      font-size: 20px;
+      font-weight: bold;
+      i {
+        color: #ed85ab;
+        margin-right: 5px;
+      }
+    }
+  }
+}

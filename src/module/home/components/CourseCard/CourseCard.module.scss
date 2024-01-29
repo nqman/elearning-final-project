@@ -1,0 +1,27 @@
+#like__tag--home::before {
+  content: "";
+  border: 6px solid transparent;
+  border-bottom-color: #7e1717;
+  position: absolute;
+  bottom: -5.5px;
+  left: 2.5px;
+  transform: rotate(45deg);
+}
+
+#like__tag--home::after {
+  content: "";
+  border: 16px solid #dc2626;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
+
+#sale-off {
+  animation: slightSpin 2s linear infinite;
+}
+.bg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(65 178 148 / var(--tw-bg-opacity));
+}
