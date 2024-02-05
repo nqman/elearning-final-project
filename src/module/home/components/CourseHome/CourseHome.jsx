@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { message } from "antd";
 import { useDispatch } from "react-redux";
-import { set_loading_end, set_loading_start } from "../../../auth/slices/loadingSlice";
-
 import CourseCard from "../CourseCard";
 import { courseService } from "../../../../apis/courseAPI";
 export default function CourseHome() {
@@ -12,18 +10,14 @@ export default function CourseHome() {
 
   useEffect(() => {
     window.scroll(0, 0);
-    dispatch(set_loading_start());
     courseService
       .getAllCourses()
       .then((res) => {
         setCourse(res.data);
-        dispatch(set_loading_end());
       })
       .catch(() => {
         message.error("Không thể lấy dữ liệu khóa học!");
-        dispatch(set_loading_end());
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>

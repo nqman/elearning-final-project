@@ -6,7 +6,7 @@ import { BellOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 import ReactSample from "../../../../assets/card_react_sample.jpg";
 import { useDispatch } from "react-redux";
-import { setNavbarActive } from "../../../auth/slices/navbarSlice";
+import { setNavbarActive } from "../../../../redux/slices/navbarSlice";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";

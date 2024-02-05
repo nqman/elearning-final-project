@@ -3,17 +3,17 @@ import { Col, Row } from "antd";
 import BlogItem from "../BlogItem/BlogItem";
 import styles from "./BlogContent.module.scss";
 import clsx from "clsx";
-import time from "../../../../../assets/time.jpg";
-import tailwindcss from "../../../../../assets/tailwindcss.jpg";
-import html from "../../../../../assets/html-structure.jpg";
-import materialUI from "../../../../../assets/html-structure.jpg";
-import extensions from "../../../../../assets/extensions.png";
-import asyncAwait from "../../../../../assets/async-await.png";
-import typescript from "../../../../../assets/typescript.jpg";
-import antd from "../../../../../assets/antd.png";
-import logoUser1 from "../../../../../assets/home_carousel_01.jpg";
-import logoUser2 from "../../../../../assets/home_carousel_02.jpg";
-import logoUser3 from "../../../../../assets/home_carousel_03.jpg";
+import time from "../../../assets/time.jpg";
+import tailwindcss from "../../../assets/tailwindcss.jpg";
+import html from "../../../assets/html-structure.jpg";
+import materialUI from "../../../assets/html-structure.jpg";
+import extensions from "../../../assets/extensions.png";
+import asyncAwait from "../../../assets/async-await.png";
+import typescript from "../../../assets/typescript.jpg";
+import antd from "../../..//assets/antd.png";
+import logoUser1 from "../../../assets/home_carousel_01.jpg";
+import logoUser2 from "../../../assets/home_carousel_02.jpg";
+import logoUser3 from "../../../assets/home_carousel_03.jpg";
 import { NotificationOutlined } from "@ant-design/icons";
 
 export default function BlogContent() {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import loginBG from "../../../../assets/login_bg.png";
-import loginOverlay from "../../../../assets/login_overlay.png";
+import loginBG from "../../assets/login_bg.png";
+import loginOverlay from "../../assets/login_overlay.png";
 import "./login.module.scss";
-import Signin from "../../../auth/page/Signin/Signin";
-import Signup from "../../../auth/page/Signup/Signup";
+import Signin from "../../module/auth/page/Signin/Signin";
+import Signup from "../../module/auth/page/Signup/Signup";
 import { NavLink } from "react-router-dom";
 import { AuditOutlined, HomeOutlined } from "@ant-design/icons";
 
