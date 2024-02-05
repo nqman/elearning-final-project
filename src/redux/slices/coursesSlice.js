@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { courseService } from "../../../apis/courseAPI";
+import { courseService } from "../../apis/courseAPI";
 
 const initialState = {
   courses: [],
   selectedCourse: {},
   pagination: 1,
 };
-
 export const getAllCourses = createAsyncThunk("course/getAllCourses", async (tenKhoaHoc = "") => {
   const res = await courseService.getListCourseAPI(tenKhoaHoc);
   return res.data;

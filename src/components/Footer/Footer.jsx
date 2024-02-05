@@ -9,7 +9,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
-import { Button } from "bootstrap";
+
 export default function Footer() {
   return (
     <div>

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { signinAPI } from "../../../apis/userAPI";
+import { signinAPI } from "../../apis/userAPI";
 
 export const signin = createAsyncThunk("auth/signin", async (credentials) => {
   const data = await signinAPI(credentials);

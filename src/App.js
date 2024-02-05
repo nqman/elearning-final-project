@@ -3,9 +3,11 @@ import "./App.css";
 import MainLayout from "./components/MainLayout/MainLayout";
 import Home from "./module/home/page/Home";
 import NotFound from "./components/NotFound/NotFound";
-import Login from "./module/home/components/Login&Register/Login";
-import Course from "./module/home/components/Course/Course";
-import BlogContent from "./module/home/components/Blog/BlogContent/BlogContent";
+import Course from "./pages/Course/Course";
+import BlogContent from "./pages/Blog/BlogContent";
+import Detail from "./pages/Detail";
+import Login from "./pages/Login&Register/Login";
+import Event from "./pages/Event";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="course" element={<Course />} />
             <Route path="blog" element={<BlogContent />} />
+            <Route path="/event" element={<Event />} />
+            <Route path="/detail/:maKhoaHoc" element={<Detail />} />
           </Route>
           <Route path="/login" element={<Login />} />
 
