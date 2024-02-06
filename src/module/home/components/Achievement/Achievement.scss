@@ -1,0 +1,31 @@
+.achievement-card {
+  overflow: hidden;
+}
+
+.achievement-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) -5px 5px, rgba(0, 0, 0, 0.2) -10px 10px,
+    rgba(0, 0, 0, 0.1) -15px 15px, rgba(0, 0, 0, 0.05) -20px 20px,
+    rgba(0, 0, 0, 0.025) -25px 25px;
+}
+
+.achievement-card::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: -160%;
+  transform: skewX(-17deg);
+  background: transparent;
+  transition: all 1s;
+}
+
+.achievement-card:hover::before {
+  left: 100%;
+  background: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0) 0,
+    hsla(0, 0%, 100%, 0.3)
+  );
+}
