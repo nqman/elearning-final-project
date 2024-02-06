@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { signinAPI } from "../../apis/userAPI";
 
-export const signin = createAsyncThunk("auth/signin", async (credentials) => {
+export const login = createAsyncThunk("auth/login", async (credentials) => {
   const data = await signinAPI(credentials);
   // Lưu thông tin đăng nhập vào localStorage
   localStorage.setItem("currentUser", JSON.stringify(credentials));
+  console.log(data);
   return data;
 });
 const authSlice = createSlice({
@@ -22,15 +23,14 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(signin.pending, (state, action) => {
+    builder.addCase(login.pending, (state, action) => {
       return { ...state, isLoading: true, error: null };
     });
 
-    builder.addCase(signin.fulfilled, (state, action) => {
+    builder.addCase(login.fulfilled, (state, action) => {
       return { ...state, isLoading: false, currentUser: action.payload };
     });
-
-    builder.addCase(signin.rejected, (state, action) => {
+    builder.addCase(login.rejected, (state, action) => {
       return { ...state, isLoading: false, error: action.error.message };
     });
   },

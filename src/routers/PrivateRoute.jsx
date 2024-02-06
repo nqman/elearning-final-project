@@ -9,7 +9,7 @@ export default function PrivateRoute({ children }) {
 
   if (!currentUser) {
     // User chưa đăng nhập => Điều hướng về trang đăng nhập
-    const url = `/sign-in?from=${location.pathname}`;
+    const url = `/login?from=${location.pathname}`;
     return <Navigate to={url} replace />;
   }
 
