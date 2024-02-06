@@ -18,6 +18,7 @@ import "./Header.scss";
 import { setPagination } from "../../redux/slices/coursesSlice";
 import favicon from "../../assets/favicon.png";
 import { removeLocal } from "../../utils/localStorage";
+import KeyboardIcon from "@mui/icons-material/Keyboard";
 
 function getWindowSize() {
   const { innerWidth, innerHeight } = window;
@@ -51,7 +52,7 @@ const Header = () => {
       label: (
         <NavLink
           to="/category/TuDuy"
-          style={({ isActive }) => (isActive ? { color: "orange" } : {})}
+          style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
           onClick={() => {
             dispatch(setNavbarActive(true));
           }}
@@ -65,7 +66,7 @@ const Header = () => {
       label: (
         <NavLink
           to="/category/DiDong"
-          style={({ isActive }) => (isActive ? { color: "orange" } : {})}
+          style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
           onClick={() => {
             dispatch(setNavbarActive(true));
           }}
@@ -79,7 +80,7 @@ const Header = () => {
       label: (
         <NavLink
           to="/category/Design"
-          style={({ isActive }) => (isActive ? { color: "orange" } : {})}
+          style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
           onClick={() => {
             dispatch(setNavbarActive(true));
           }}
@@ -93,7 +94,7 @@ const Header = () => {
       label: (
         <NavLink
           to="/category/FrontEnd"
-          style={({ isActive }) => (isActive ? { color: "orange" } : {})}
+          style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
           onClick={() => {
             dispatch(setNavbarActive(true));
           }}
@@ -107,7 +108,7 @@ const Header = () => {
       label: (
         <NavLink
           to="/category/BackEnd"
-          style={({ isActive }) => (isActive ? { color: "orange" } : {})}
+          style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
           onClick={() => {
             dispatch(setNavbarActive(true));
           }}
@@ -121,7 +122,7 @@ const Header = () => {
       label: (
         <NavLink
           to="/category/FullStack"
-          style={({ isActive }) => (isActive ? { color: "orange" } : {})}
+          style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
           onClick={() => {
             dispatch(setNavbarActive(true));
           }}
@@ -140,7 +141,7 @@ const Header = () => {
           <NavLink
             to="/info"
             className="flex items-center duration-300 hover:text-orange-400"
-            style={({ isActive }) => (isActive ? { color: "orange" } : {})}
+            style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
             onClick={() => {
               dispatch(setNavbarActive(false));
             }}
@@ -218,15 +219,12 @@ const Header = () => {
             }}
           >
             <img src={favicon} className="h-20" alt="Logo" />
+
             <div>
-              <span className="self-center hidden text-2xl font-semibold tracking-wide uppercase duration-300 sm:inline-block whitespace-nowrap group-hover:scale-105">
-                Cyber E-Learning
+              <span className="self-center hidden text-xl font-semibold tracking-wide uppercase duration-300 sm:inline-block whitespace-nowrap group-hover:scale-105">
+                V-Learning
               </span>
-              <p className="items-center justify-center hidden text-xs text-orange-400 uppercase sm:flex">
-                <CaretRightOutlined />
-                The Best Online Education
-                <CaretLeftOutlined />
-              </p>
+              <p className="items-center justify-center hidden text-xs text-orange-400 uppercase sm:flex"></p>
             </div>
           </NavLink>
           <div className="flex items-center justify-end lg:order-2">
@@ -260,7 +258,7 @@ const Header = () => {
             ) : (
               <NavLink
                 to="/login"
-                className="text-white hover:bg-orange-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none bg-orange-400 duration-300 hover:shadow-md flex justify-center items-center"
+                className="text-white hover:bg-blue-600 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none bg-blue-700 duration-300 hover:shadow-md flex justify-center items-center"
               >
                 {windowSize.innerWidth <= 342 ? <LoginOutlined /> : "Đăng nhập"}
               </NavLink>
@@ -275,9 +273,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/"
-                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-400 lg:p-0"
+                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link  lg:hover:bg-transparent lg:border-0 hover:text-red-500 lg:p-0"
                   style={({ isActive }) =>
-                    isActive ? { color: "orange" } : {}
+                    isActive ? { color: "#e40707" } : {}
                   }
                   onClick={() => {
                     dispatch(setNavbarActive(false));
@@ -286,20 +284,7 @@ const Header = () => {
                   Trang chủ
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/intro"
-                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-400 lg:p-0"
-                  style={({ isActive }) =>
-                    isActive ? { color: "orange" } : {}
-                  }
-                  onClick={() => {
-                    dispatch(setNavbarActive(false));
-                  }}
-                >
-                  Thông tin
-                </NavLink>
-              </li>
+
               <li>
                 <Dropdown
                   menu={{
@@ -307,7 +292,7 @@ const Header = () => {
                   }}
                 >
                   <NavLink
-                    className={`flex items-center py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-orange-400 lg:p-0 ${
+                    className={`flex items-center py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-500 lg:p-0 ${
                       isActive ? "text-orange-400" : ""
                     }`}
                   >
@@ -319,9 +304,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/course"
-                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-400 lg:p-0"
+                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-red-500 lg:p-0"
                   style={({ isActive }) =>
-                    isActive ? { color: "orange" } : {}
+                    isActive ? { color: "#e40707" } : {}
                   }
                   onClick={() => {
                     dispatch(setNavbarActive(false));
@@ -333,9 +318,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/blog"
-                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-400 lg:p-0"
+                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-red-500 lg:p-0"
                   style={({ isActive }) =>
-                    isActive ? { color: "orange" } : {}
+                    isActive ? { color: "#e40707" } : {}
                   }
                   onClick={() => {
                     dispatch(setNavbarActive(false));
@@ -347,9 +332,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/event"
-                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-400 lg:p-0"
+                  className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-red-500 lg:p-0"
                   style={({ isActive }) =>
-                    isActive ? { color: "orange" } : {}
+                    isActive ? { color: "#e40707" } : {}
                   }
                   onClick={() => {
                     dispatch(setNavbarActive(false));

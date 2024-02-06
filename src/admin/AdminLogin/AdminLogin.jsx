@@ -1,9 +1,9 @@
 import React from "react";
 import Lottie from "react-lottie";
-import * as animationAdminLogin from "../../assets/animations/admin_login.json";
-import loginBG from "../../assets/imgs/login_overlay.png";
-import loginFormBG from "../../assets/imgs/login_bg.png";
-import FormInput from "../../Components/FormInput/FormInput";
+import * as animationAdminLogin from "../../assets/animation/admin_login.json";
+import loginBG from "../../assets/login_overlay.png";
+import loginFormBG from "../../assets/login_bg.png";
+import FormInput from "../FormInput/FormInput";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { userService } from "../../services/userServices";

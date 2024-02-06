@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCourses, setSelectedCourse } from "../../redux/slices/courseSlice";
+import {
+  getAllCourses,
+  setSelectedCourse,
+} from "../../redux/slices/coursesSlice";
 import { Drawer, Popconfirm, Table, message } from "antd";
-import DrawerAddCourse from "../../Components/DrawerAddCourse/DrawerAddCourse";
+import DrawerAddCourse from "../DrawerAddCourse/DrawerAddCourse";
 import "./AdminCourse.scss";
 import {
   DeleteFilled,
@@ -10,9 +13,9 @@ import {
   QuestionCircleOutlined,
   SettingFilled,
 } from "@ant-design/icons";
-import ReactSample from "../../assets/imgs/card_react_sample.jpg";
+import ReactSample from "../../assets/card_react_sample.jpg";
 import { courseService } from "../../services/courseServices";
-import DrawerUpdateCourse from "../../Components/DrawerUpdateCourse/DrawerUpdateCourse";
+import DrawerUpdateCourse from "../DrawerUpdateCourse/DrawerUpdateCourse";
 import { NavLink } from "react-router-dom";
 
 const AdminCourse = () => {
@@ -121,7 +124,14 @@ const AdminCourse = () => {
       title: "Danh Sách",
       key: "danhSach",
       align: "center",
-      render: () => <NavLink to="/admin/enroll" className="italic text-blue-400 hover:underline">Các Học Viên Ghi Danh</NavLink>
+      render: () => (
+        <NavLink
+          to="/admin/enroll"
+          className="italic text-blue-400 hover:underline"
+        >
+          Các Học Viên Ghi Danh
+        </NavLink>
+      ),
     },
     {
       title: <SettingFilled />,

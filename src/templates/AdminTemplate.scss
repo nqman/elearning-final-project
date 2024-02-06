@@ -1,0 +1,79 @@
+#admin__template {
+  .ant-btn.ant-btn-icon-only {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ant-menu-item:first-child {
+    background-color: #1677fb;
+    margin-inline: 0;
+    margin-block: 0;
+    height: 60px;
+    border-radius: 0;
+    width: 100%;
+    margin-bottom: 20px !important;
+    span {
+      a {
+        color: white;
+        line-height: 60px;
+      }
+    }
+  }
+
+  .ant-menu-dark:not(.ant-menu-horizontal)
+    .ant-menu-item:first-child:not(.ant-menu-item-selected) {
+    &:hover {
+      background-color: #1164d7;
+      img {
+        transition: all 0.5s;
+        transform: scale(1.5);
+      }
+      span {
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .ant-menu-item:not(:first-child) {
+    margin-inline-start: 8px !important;
+    margin-inline-end: 0 !important;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    &:hover {
+      .ant-menu-item-icon {
+        color: black;
+      }
+    }
+  }
+
+  .ant-menu-item:not(:first-child).ant-menu-item-selected {
+    background-color: #eee;
+    color: black;
+  }
+
+  .ant-menu-dark:not(.ant-menu-horizontal)
+    .ant-menu-item:not(.ant-menu-item-selected):hover {
+    background-color: #eee;
+    span {
+      a {
+        color: black;
+      }
+    }
+  }
+
+  .ant-layout-sider-children {
+    box-shadow: 2px 0px 20px black;
+  }
+
+  .ant-table-wrapper .ant-table-thead >tr>th {
+    background-color: #1e90ff;
+    color: white;
+  }
+
+  .ant-table-wrapper .ant-table-tbody >tr:nth-child(odd) {
+    background-color: #f1f2f6;
+  }
+}
