@@ -22,6 +22,7 @@ function App() {
             <Route path="/detail/:maKhoaHoc" element={<Detail />} />
           </Route>
           <Route path="/login" element={<Login />} />
+          {/* <Route path="/sigin" element={<Signin />} /> */}
 
           {/* TRANG NOT FOUND */}
           <Route path="*" element={<NotFound />}></Route>

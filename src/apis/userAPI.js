@@ -3,8 +3,8 @@ import baseAPI from "./baseAPI";
 export async function signinAPI(credentials) {
   try {
     const resp = await baseAPI.post("/quanlynguoidung/dangnhap", credentials);
-
-    return resp.data.content;
+    console.log(resp);
+    return resp.data;
   } catch (error) {
     if (error.response) {
       throw error.response.data?.content;
