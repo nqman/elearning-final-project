@@ -1,0 +1,22 @@
+
+@mixin btnGradient ($bg, $bgSize, $transition) {
+    background: $bg;
+    background-size: $bgSize;
+    transition: $transition;
+    &:hover{
+        background-position: right center;
+        transform: scale(0.9);
+    }
+}
+
+@mixin textGradient ($bg) {
+    background: $bg;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+@mixin textBase ($fontS, $fontW ,$color) {
+    font-size: $fontS;
+    font-weight: $fontW;
+    color: $color;
+} 

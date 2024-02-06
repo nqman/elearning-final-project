@@ -1,0 +1,51 @@
+
+// teal
+$cTeal-100: rgb(204 251 241); 
+$cTeal-200: rgb(153 246 228); 
+$cTeal-300: rgb(94 234 212); 
+$cTeal-400: rgb(45 212 191); 
+$cTeal-500: rgb(20 184 166); 
+$cTeal-600: rgb(13 148 136); 
+$cTeal-700: rgb(15 118 110); 
+$cTeal-800: rgb(17 94 89); 
+$cTeal-900: rgb(19 78 74); 
+
+// green
+$cGreen-100: rgb(220 252 231); 
+$cGreen-200: rgb(187 247 208); 
+$cGreen-300: rgb(134 239 172); 
+$cGreen-400: rgb(74 222 128); 
+$cGreen-500: rgb(34 197 94); 
+$cGreen-600: rgb(22 163 74); 
+$cGreen-700: rgb(21 128 61); 
+$cGreen-800: rgb(22 101 52); 
+$cGreen-900: rgb(20 83 45 / var(--tw-bg-opacity)); 
+
+// yellow
+$cYellow-600: #f6ba35;
+
+
+// basic color
+$cWhite: #ffffff;
+$cBlack: #000000;
+
+// font size global
+$text-100: 0.25rem;
+$text-200: 0.5rem;
+$text-300: 1rem;
+$text-400: 1.25rem;
+$text-500: 1.5rem;
+$text-600: 2rem;
+$text-700: 2.5rem;
+$text-800: 3rem;
+$text-900: 3.5rem;
+
+
+// gradient color
+
+$c3GradientLeft: linear-gradient(to left, #227df9 20%, #7462f9, #df3ef8); 
+$c3GradientRight: linear-gradient(to right, #227df9 20%, #7462f9, #df3ef8); 
+$c3GradientBottom: linear-gradient(to bottom, #227df9 20%, #7462f9, #df3ef8); 
+$c3GradientTop: linear-gradient(to top, #227df9 20%, #7462f9, #df3ef8); 
+
+$c5GradientLeft: linear-gradient(to left, #227df9 0%, #7462f9 25%, #df3ef8 50%, #7462f9 75%, #227df9 100%);
