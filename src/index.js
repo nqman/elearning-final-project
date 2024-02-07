@@ -8,7 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import "slick-carousel/slick/slick.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "react-redux";
-import store from "./store";
+import store from "./redux/store";
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

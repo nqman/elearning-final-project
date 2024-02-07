@@ -26,12 +26,17 @@ function App() {
             <Route path="/detail/:maKhoaHoc" element={<Detail />} />
           </Route>
           <Route path="/login" element={<Login />} />
+<<<<<<< HEAD
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminTemplate />}>
             <Route index element={<AdminUser />} />
             <Route path="/admin/course" element={<AdminCourse />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
+=======
+          {/* <Route path="/sigin" element={<Signin />} /> */}
+
+>>>>>>> 3adb385d396dfbc72548cdfe001c87b46e7743e0
           {/* TRANG NOT FOUND */}
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

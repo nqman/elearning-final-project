@@ -1,10 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
-import { signin } from "../../../../redux/slices/authSlice";
 import { Navigate, useSearchParams } from "react-router-dom";
 import formStyles from "../../components/formStyles.module.scss";
 import Swal from "sweetalert2";
+import { login } from "../../../../redux/slices/authSlice";
 export default function Signin() {
   const {
     register,
@@ -20,23 +20,21 @@ export default function Signin() {
   const [searchParams] = useSearchParams();
 
   const { currentUser, isLoading, error } = useSelector((state) => state.auth);
-
+  console.log(currentUser);
   const dispatch = useDispatch();
 
-  const handleSignin = async (values) => {
+  const handleSignin = async (credentials) => {
     try {
-      await dispatch(signin(values)).unwrap();
-      // Swal.fire({
-      //   position: "top-end",
-      //   icon: "success",
-      //   title: "Your work has been saved",
-      //   showConfirmButton: false,
-      //   timer: 1500,
-      // }).then(() => {
-      //   // Chuyển hướng đến trang chủ
-      //   window.location.href = "/";
-      // });
-      alert("Login success");
+      await dispatch(login(credentials)).unwrap();
+      console.log(login);
+      await Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      // alert("Login success");
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -54,8 +52,10 @@ export default function Signin() {
   if (currentUser) {
     // Nếu có thông tin đăng nhập của user => điều hướng về trang home
     const url = searchParams.get("from") || "/";
+    console.log(url);
     return <Navigate to={url} replace />;
   }
+  console.log(currentUser);
   return (
     <div className={`${formStyles.form}`}>
       <div>

@@ -45,7 +45,7 @@ export default function Signup() {
       setIsLoading(true);
       setError(null);
       await signupAPI(credentials);
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       setError(error);
     } finally {
@@ -93,6 +93,7 @@ export default function Signup() {
           </div>
           <div className={`${formStyles.form_input}`}>
             <select {...register("manhom")}>
+              <option value="">Chọn mã nhóm</option>
               <option value="GP01">GP01</option>
               <option value="GP02">GP02</option>
               <option value="GP03">GP03</option>
