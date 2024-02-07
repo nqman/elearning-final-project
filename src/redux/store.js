@@ -15,5 +15,5 @@ const store = configureStore({
     navbar: navbarSlice,
   },
 });
-// const state = store.getState();
+const state = store.getState();
 export default store;

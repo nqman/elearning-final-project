@@ -1,21 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getUserIn4, getUserList } from "../../apis/userAPI";
+import { userService } from "../../services/userServices";
+import { getLocal } from "../../utils/localStorage";
 
 const initialState = {
   users: [],
+  loggedUser: getLocal("user"),
   selectedUser: {},
   accountInfo: {},
 };
 
-export const getAllUsers = createAsyncThunk("user/getAllUsers", async (tuKhoa = "") => {
-  const res = await getUserList(tuKhoa);
-  return res.data;
-});
+export const getAllUsers = createAsyncThunk(
+  "user/getAllUsers",
+  async (tuKhoa = "") => {
+    const res = await userService.getAllUsers(tuKhoa);
+    return res.data;
+  }
+);
 
-export const getAccountInfo = createAsyncThunk("user/getAccountInfo", async () => {
-  const res = await getUserIn4();
-  return res.data;
-});
+export const getAccountInfo = createAsyncThunk(
+  "user/getAccountInfo",
+  async () => {
+    const res = await userService.accountInfo();
+    return res.data;
+  }
+);
 
 export const userSlice = createSlice({
   name: "user",
@@ -43,5 +51,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setLoggedUser, setSelectedUser, setSearchUser } = userSlice.actions;
+export const { setLoggedUser, setSelectedUser, setSearchUser } =
+  userSlice.actions;
 export default userSlice.reducer;

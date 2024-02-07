@@ -18,7 +18,6 @@ import "./Header.scss";
 import { setPagination } from "../../redux/slices/coursesSlice";
 import favicon from "../../assets/favicon.png";
 import { removeLocal } from "../../utils/localStorage";
-import KeyboardIcon from "@mui/icons-material/Keyboard";
 
 function getWindowSize() {
   const { innerWidth, innerHeight } = window;
