@@ -1,0 +1,23 @@
+#form__input {
+  position: relative;
+  input {
+    background-color: #eeeeee;
+    &:focus ~ label {
+      width: 100%;
+    }
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px #eee inset;
+    }
+  }
+  label {
+    display: block;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #41b294;
+    transition: all 0.5s;
+  }
+}

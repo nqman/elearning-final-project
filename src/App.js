@@ -25,7 +25,6 @@ function App() {
             <Route path="/detail/:maKhoaHoc" element={<Detail />} />
           </Route>
           <Route path="/login" element={<Login />} />
-
           {/* TRANG NOT FOUND */}
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

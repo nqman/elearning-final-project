@@ -7,8 +7,8 @@ import {
   setSelectedUser,
 } from "../../redux/slices/userSlice";
 import { QuestionCircleOutlined, SettingFilled } from "@ant-design/icons";
-import DrawerAddUser from "../../Components/DrawerAddUser/DrawerAddUser";
-import DrawerUpdateUser from "../../Components/DrawerUpdateUser/DrawerUpdateUser";
+import DrawerAddUser from "../DrawerAddUser/DrawerAddUser";
+import DrawerUpdateUser from "../DrawerUpdateUser/DrawerUpdateUser";
 import "./AdminUser.scss";
 import { userService } from "../../services/userServices";
 import { getLocal } from "../../utils/localStorage";
