@@ -8,10 +8,7 @@ import BlogContent from "./pages/Blog/BlogContent";
 import Detail from "./pages/Detail";
 import Login from "./pages/Login&Register/Login";
 import Event from "./pages/Event";
-import AdminUser from "./admin/AdminUser/AdminUser";
-import AdminCourse from "./admin/AdminCourse/AdminCourse";
-import AdminTemplate from "./templates/AdminTemplate";
-import AdminLogin from "./admin/AdminLogin/AdminLogin";
+import Profile from "./pages/User/Profile";
 
 function App() {
   return (
@@ -23,15 +20,11 @@ function App() {
             <Route path="course" element={<Course />} />
             <Route path="blog" element={<BlogContent />} />
             <Route path="/event" element={<Event />} />
+            <Route path="/profile" element={<Profile />} />
+
             <Route path="/detail/:maKhoaHoc" element={<Detail />} />
           </Route>
           <Route path="/login" element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<AdminTemplate />}>
-            <Route index element={<AdminUser />} />
-            <Route path="/admin/course" element={<AdminCourse />} />
-          </Route>
-          <Route path="/admin/login" element={<AdminLogin />} />
           {/* TRANG NOT FOUND */}
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

@@ -13,12 +13,14 @@ import {
   SafetyCertificateOutlined,
   WechatOutlined,
 } from "@ant-design/icons";
+import { selectCurrentUser } from "../../redux/slices/authSlice";
+import { useSelector } from "react-redux";
 
 const Detail = () => {
   const [course, setCourse] = useState([]);
   const [detail, setDetail] = useState({});
   const { maKhoaHoc } = useParams();
-  //   const user = getLocal("user");
+  const user = useSelector(selectCurrentUser);
   const [api, contextHolder] = notification.useNotification();
   const navigate = useNavigate();
 
@@ -43,74 +45,74 @@ const Detail = () => {
   }, [maKhoaHoc]);
 
   const enrollCourse = () => {
-    // if (user) {
-    //   const data = {
-    //     maKhoaHoc,
-    //     taiKhoan: user.taiKhoan,
-    //   };
-    //   courseService
-    //     .registerCourses(data)
-    //     .then(() => {
-    //       api.open({
-    //         message: <h1 className="text-lg font-semibold">Đăng Ký Khóa Học</h1>,
-    //         description:
-    //           "Đăng ký khóa học thành công. Bạn có thể đăng ký thêm các khóa học khác trong hệ thống!",
-    //         icon: (
-    //           <SafetyCertificateOutlined
-    //             style={{
-    //               color: "#41b294",
-    //             }}
-    //           />
-    //         ),
-    //         className: "border-l-8 border-[#41b294]",
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       api.open({
-    //         message: <h1 className="text-lg font-semibold">Đăng Ký Khóa Học</h1>,
-    //         description: `${
-    //           err.response.data
-    //             ? err.response.data
-    //             : "Đăng ký khóa học thất bại. Hệ thống đã xảy ra lỗi khi đăng ký khóa học này!"
-    //         }`,
-    //         icon: (
-    //           <>
-    //             {err.response.data ? (
-    //               <InfoCircleOutlined
-    //                 style={{
-    //                   color: "#0984e3",
-    //                 }}
-    //               />
-    //             ) : (
-    //               <FileExcelOutlined
-    //                 style={{
-    //                   color: "red",
-    //                 }}
-    //               />
-    //             )}
-    //           </>
-    //         ),
-    //         className: `border-l-8 ${err.response.data ? "border-blue-500" : "border-red-500"}`,
-    //       });
-    //     });
-    // } else {
-    api.open({
-      message: <h1 className="text-lg font-semibold">Đăng Ký Khóa Học</h1>,
-      description: "Bạn cần phải đăng nhập tài khoản trước khi đăng ký các khóa học!",
-      icon: (
-        <InfoCircleOutlined
-          style={{
-            color: "#0984e3",
-          }}
-        />
-      ),
-      className: "border-l-8 border-blue-500",
-    });
-    setTimeout(() => {
-      navigate("/login");
-    }, [3000]);
+    if (user) {
+      const data = {
+        maKhoaHoc,
+        taiKhoan: user.taiKhoan,
+      };
+      courseService
+        .registerCourses(data)
+        .then(() => {
+          api.open({
+            message: <h1 className="text-lg font-semibold">Đăng Ký Khóa Học</h1>,
+            description:
+              "Đăng ký khóa học thành công. Bạn có thể đăng ký thêm các khóa học khác trong hệ thống!",
+            icon: (
+              <SafetyCertificateOutlined
+                style={{
+                  color: "#41b294",
+                }}
+              />
+            ),
+            className: "border-l-8 border-[#41b294]",
+          });
+        })
+        .catch((err) => {
+          api.open({
+            message: <h1 className="text-lg font-semibold">Đăng Ký Khóa Học</h1>,
+            description: `${
+              err.response.data
+                ? err.response.data
+                : "Đăng ký khóa học thất bại. Hệ thống đã xảy ra lỗi khi đăng ký khóa học này!"
+            }`,
+            icon: (
+              <>
+                {err.response.data ? (
+                  <InfoCircleOutlined
+                    style={{
+                      color: "#0984e3",
+                    }}
+                  />
+                ) : (
+                  <FileExcelOutlined
+                    style={{
+                      color: "red",
+                    }}
+                  />
+                )}
+              </>
+            ),
+            className: `border-l-8 ${err.response.data ? "border-blue-500" : "border-red-500"}`,
+          });
+        });
+    } else {
+      api.open({
+        message: <h1 className="text-lg font-semibold">Đăng Ký Khóa Học</h1>,
+        description: "Bạn cần phải đăng nhập tài khoản trước khi đăng ký các khóa học!",
+        icon: (
+          <InfoCircleOutlined
+            style={{
+              color: "#0984e3",
+            }}
+          />
+        ),
+        className: "border-l-8 border-blue-500",
+      });
+      setTimeout(() => {
+        navigate("/login");
+      }, [3000]);
+    }
   };
-  //   };
 
   return (
     <div id="user__detail">

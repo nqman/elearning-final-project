@@ -1,22 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
 import { signinAPI } from "../../apis/userAPI";
 
 export const login = createAsyncThunk("auth/login", async (credentials) => {
   const data = await signinAPI(credentials);
-  // Lưu thông tin đăng nhập vào localStorage
-  localStorage.setItem("currentUser", JSON.stringify(credentials));
+  localStorage.setItem("currentUser", JSON.stringify(data));
   console.log(data);
   return data;
 });
+
+const getLocalData = () => {
+  return JSON.parse(localStorage.getItem("currentUser")) || null;
+};
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
+    currentUser: getLocalData(),
     isLoading: false,
     error: null,
   },
   reducers: {
-    // xử lý logout
     logout: (state) => {
       localStorage.removeItem("currentUser");
       state.currentUser = null;
@@ -24,16 +27,23 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state, action) => {
-      return { ...state, isLoading: true, error: null };
+      state.isLoading = true;
+      state.error = null;
     });
-
     builder.addCase(login.fulfilled, (state, action) => {
-      return { ...state, isLoading: false, currentUser: action.payload };
+      state.isLoading = false;
+      state.currentUser = action.payload;
     });
     builder.addCase(login.rejected, (state, action) => {
-      return { ...state, isLoading: false, error: action.error.message };
+      state.isLoading = false;
+      state.error = action.error.message;
     });
   },
 });
+// Tạo selector để truy cập giá trị currentUser
+export const selectCurrentUser = createSelector(
+  (state) => state.auth.currentUser,
+  (currentUser) => currentUser
+);
 export const { logout } = authSlice.actions;
 export default authSlice.reducer;

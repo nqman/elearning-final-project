@@ -6,6 +6,7 @@ import { object, string } from "yup";
 import { signupAPI } from "../../../../apis/userAPI";
 import formStyles from "../../components/formStyles.module.scss";
 import { Button } from "@mui/base";
+
 const validationSchema = object({
   taiKhoan: string().required("Tài khoản không được để trống"),
   matKhau: string()
@@ -54,19 +55,20 @@ export default function Signup() {
   };
 
   return (
-    <div className={`${formStyles.form}`}>
+    // <div className="">
+    <div className={`${formStyles.form} `}>
       <form
         noValidate
         onSubmit={handleSubmit(handleSignup)}
         className={`${formStyles.form_background}`}
       >
         <div className={`${formStyles.form_container}`}>
-          <h1 className="mb-2 text-4xl font-semibold">Đăng nhập</h1>
+          <h1 className="mb-4 text-4xl font-semibold">Đăng kí</h1>
           {/* TÀI KHOẢN INPUT  */}
           <div className={`${formStyles.form_input}`}>
             <input type="text" placeholder="Tài Khoản" {...register("taiKhoan")} />
             {errors.taiKhoan && (
-              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm">
+              <span className="mt-2 p-3 text-xs italic text-left text-red-500 sm:text-sm block">
                 {errors.taiKhoan.message}
               </span>
             )}
@@ -74,22 +76,38 @@ export default function Signup() {
           {/* MẬT KHẨU INPUT  */}
           <div className={`${formStyles.form_input}`}>
             <input type="password" placeholder="Mật khẩu" {...register("matKhau")} />
-            {errors.matKhau && <span>{errors.matKhau.message}</span>}
+            {errors.matKhau && (
+              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm block">
+                {errors.matKhau.message}
+              </span>
+            )}
           </div>
           {/* EMAIL INPUT  */}
           <div className={`${formStyles.form_input}`}>
             <input type="email" placeholder="Email" {...register("email")} />
-            {errors.email && <span>{errors.email.message}</span>}
+            {errors.email && (
+              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm block">
+                {errors.email.message}
+              </span>
+            )}
           </div>
           {/* HỌ TÊN INPUT */}
           <div className={`${formStyles.form_input}`}>
             <input type="text" placeholder="Họ tên" {...register("hoTen")} />
-            {errors.hoTen && <span>{errors.hoTen.message}</span>}
+            {errors.hoTen && (
+              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm block">
+                {errors.hoTen.message}
+              </span>
+            )}
           </div>
           {/* SĐT INPUT */}
           <div className={`${formStyles.form_input}`}>
             <input type="text" placeholder="SĐT" {...register("soDt")} />
-            {errors.soDt && <span>{errors.soDt.message}</span>}
+            {errors.soDt && (
+              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm block">
+                {errors.soDt.message}
+              </span>
+            )}
           </div>
           <div className={`${formStyles.form_input}`}>
             <select {...register("manhom")}>
