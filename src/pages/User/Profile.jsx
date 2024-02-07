@@ -8,17 +8,17 @@ import {
   SolutionOutlined,
 } from "@ant-design/icons";
 import { Tabs, message, notification } from "antd";
-import "./Info.module.scss";
-import avatar from "../../../../assets/home_carousel_06.jpg";
-
+import "./Profile.scss";
+import avatar from "../../assets/home_carousel_06.jpg";
+// import InfoDetail from "../../Components/InfoDetail/InfoDetail";
+// import InfoCourse from "../../Components/InfoCourse/InfoCourse";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getUserIn4, updateUser } from "../../../../apis/userAPI";
-import InfoDetail from "../InfoDetail/InfoDetail";
-import { getAccountInfo } from "../../../../redux/slices/userSlice";
-export default function InfoCourse() {
+import { getAccountInfo } from "../../redux/slices/userSlice";
+import { getUserIn4, updateUser } from "../../apis/userAPI";
+export default function Profile() {
   const [account, setAccount] = useState({});
   const [card, setCard] = useState(false);
   const [api, contextHolder] = notification.useNotification();
@@ -87,10 +87,8 @@ export default function InfoCourse() {
   useEffect(() => {
     window.scroll(0, 0);
     dispatch(getAccountInfo());
-    console.log(getAccountInfo);
-    getUserIn4();
-    console
-      .log(getUserIn4)
+
+    getUserIn4()
       .then((res) => {
         setAccount(res.data);
         formik.values.hoTen = res.data.hoTen;
@@ -105,6 +103,7 @@ export default function InfoCourse() {
         message.info("Vui lòng đăng nhập tài khoản của bạn!");
         navigate("/login");
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const items = [
@@ -116,7 +115,7 @@ export default function InfoCourse() {
           <span>Thông tin cá nhân</span>
         </div>
       ),
-      children: <InfoDetail />,
+      // children: <InfoDetail />,
     },
     {
       key: 2,
@@ -126,7 +125,7 @@ export default function InfoCourse() {
           <span>Khóa học</span>
         </div>
       ),
-      children: <InfoCourse />,
+      // children: <InfoCourse />,
     },
   ];
 

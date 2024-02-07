@@ -3,26 +3,26 @@
     // background-image: url("../../../assets/login_bg.png");
   }
   form {
-    height: 60vh;
+    height: 65vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+
     .form_container {
-      // background-image: white;
       width: 100%;
-      padding: 30px;
-      border-radius: 30px;
 
       @media screen and (max-width: 768px) {
         width: 100%; // Đặt width là 100% khi màn hình nhỏ hơn hoặc bằng 768px
       }
       .form_input {
-        margin-bottom: 8%;
+        // margin-bottom: 8%;
         input {
-          background-color: #eee;
-          height: 50px;
-          margin-top: 3px;
+          background: #eee;
+          border: none;
+          padding: 10px 15px;
+          margin: 20px 0;
+          width: 100%;
         }
         p {
           margin-top: 2px;

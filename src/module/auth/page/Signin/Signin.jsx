@@ -89,7 +89,11 @@ export default function Signin() {
             </div>
 
             <div className="text-center mt-4">
-              <button className="btn btn-success btn-lg " type="submit" disabled={isLoading}>
+              <button
+                className="bg-[#3FAA8F] hover:bg-green-600 text-white font-bold px-10 py-3 rounded-full shadow-lg sm:mb-0 text-sm uppercase transition-transform duration-300 transform hover:scale-95 "
+                type="submit"
+                disabled={isLoading}
+              >
                 Đăng Nhập
               </button>
             </div>

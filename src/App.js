@@ -8,6 +8,7 @@ import BlogContent from "./pages/Blog/BlogContent";
 import Detail from "./pages/Detail";
 import Login from "./pages/Login&Register/Login";
 import Event from "./pages/Event";
+import Profile from "./pages/User/Profile";
 
 function App() {
   return (
@@ -19,10 +20,11 @@ function App() {
             <Route path="course" element={<Course />} />
             <Route path="blog" element={<BlogContent />} />
             <Route path="/event" element={<Event />} />
+            <Route path="/profile" element={<Profile />} />
+
             <Route path="/detail/:maKhoaHoc" element={<Detail />} />
           </Route>
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/sigin" element={<Signin />} /> */}
 
           {/* TRANG NOT FOUND */}
           <Route path="*" element={<NotFound />}></Route>

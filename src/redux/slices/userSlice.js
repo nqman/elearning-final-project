@@ -1,26 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { userService } from "../../services/userServices";
-import { getLocal } from "../../utils/localStorage";
+import { getUserIn4, getUserList } from "../../apis/userAPI";
 
 const initialState = {
   users: [],
-  loggedUser: getLocal("user"),
   selectedUser: {},
   accountInfo: {},
 };
 
 export const getAllUsers = createAsyncThunk("user/getAllUsers", async (tuKhoa = "") => {
-  const res = await userService.getAllUsers(tuKhoa);
+  const res = await getUserList(tuKhoa);
   return res.data;
 });
 
-export const getAccountInfo = createAsyncThunk(
-  "user/getAccountInfo",
-  async () => {
-    const res = await userService.accountInfo();
-    return res.data;
-  }
-);
+export const getAccountInfo = createAsyncThunk("user/getAccountInfo", async () => {
+  const res = await getUserIn4();
+  return res.data;
+});
 
 export const userSlice = createSlice({
   name: "user",
@@ -36,7 +31,7 @@ export const userSlice = createSlice({
     },
     setSearchUser: (state, action) => {
       state.users = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getAllUsers.fulfilled, (state, action) => {
