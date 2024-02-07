@@ -1,6 +1,5 @@
 import React from "react";
 import { CheckOutlined } from "@ant-design/icons";
-import astronaut from "../../../../assets/astronaut.png";
 import course from "../../../../assets/achievement_course.png";
 import route from "../../../../assets/achievement_route.png";
 import system from "../../../../assets/achievement_system.png";
@@ -12,12 +11,7 @@ const Achievement = () => {
   return (
     <div className="px-4 py-6 mx-auto max-w-screen-2xl 2xl:px-0">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <div className="relative col-span-1 row-span-2 p-5 text-white duration-300 md:col-span-2 pb-28 bg-main achievement-card lg:col-span-1">
-          <img
-            src={astronaut}
-            alt="astronaut"
-            className="absolute bottom-0 right-0 w-72"
-          />
+        <div className="relative bg-blue-500 text-black col-span-1 row-span-2 p-5 text-white duration-300 md:col-span-2 pb-28 bg-main achievement-card lg:col-span-1">
           <div className="relative">
             <div className="flex items-center">
               <img
@@ -35,8 +29,8 @@ const Achievement = () => {
               đề, xây dựng từ các ví dụ nhỏ đến thực thi một dự án lớn ngoài
               thực tế để học viên học xong làm được ngay
             </p>
-            <ul>
-              <li className="flex my-3">
+            <ul className="">
+              <li className="flex my-3 ">
                 <CheckOutlined className="mt-1 me-2" />
                 <p>Hơn 1000 bài tập và dự án thực tế</p>
               </li>

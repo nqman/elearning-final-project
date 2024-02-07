@@ -53,7 +53,7 @@ const Banner = () => {
           cursor={false}
         />
         <NavLink to="/course">
-          <button className="px-5 py-3 mt-5 text-xs text-white duration-500 bg-orange-400 rounded-md shadow-lg sm:text-sm xl:text-xl hover:bg-orange-500 hover:scale-90 lg:text-lg md:text-md">
+          <button className="px-5 py-3 mt-5 text-xs text-white duration-500 bg-blue-700 rounded-md shadow-lg sm:text-sm xl:text-xl hover:bg-orange-500 hover:scale-90 lg:text-lg md:text-md">
             Bắt đầu nào
           </button>
         </NavLink>
