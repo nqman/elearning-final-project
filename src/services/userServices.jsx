@@ -19,16 +19,9 @@ export const userService = {
         `/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}&tuKhoa=${tuKhoa}`
       );
     }
-    return https.get(
-      `/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}`
-    );
+    return https.get(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}`);
   },
-  getUsersPagination: (
-    tuKhoa = "",
-    maNhom = "GP09",
-    page = 1,
-    pageSize = 10
-  ) => {
+  getUsersPagination: (tuKhoa = "", maNhom = "GP09", page = 1, pageSize = 10) => {
     if (tuKhoa.trim() !== "") {
       return https.get(
         `/api/QuanLyNguoiDung/LayDanhSachNguoiDung_PhanTrang?MaNhom=${maNhom}&tuKhoa=${tuKhoa}&page=${page}&pageSize=${pageSize}`
@@ -40,14 +33,12 @@ export const userService = {
   },
   searchUsers: (tuKhoa = "", maNhom = "GP09") => {
     if (tuKhoa.trim() !== "") {
-      return https.get(
-        `/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=${maNhom}&tuKhoa=${tuKhoa}`
-      );
+      return https.get(`/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=${maNhom}&tuKhoa=${tuKhoa}`);
     }
     return https.get(`/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=${maNhom}`);
   },
   accountInfo: () => {
-    return https.post("/api/QuanLyNguoiDung/ThongTinTaiKhoan");
+    return https.post("/QuanLyNguoiDung/ThongTinTaiKhoan");
   },
   addUsers: (data) => {
     return https.post("/api/QuanLyNguoiDung/ThemNguoiDung", data);
@@ -56,43 +47,24 @@ export const userService = {
     return https.put("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", data);
   },
   deleteUsers: (taiKhoan) => {
-    return https.delete(
-      `/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`
-    );
+    return https.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`);
   },
   getUnregisteredCourses: (taiKhoan) => {
-    return https.post(
-      `/api/QuanLyNguoiDung/LayDanhSachKhoaHocChuaGhiDanh?TaiKhoan=${taiKhoan}`
-    );
+    return https.post(`/api/QuanLyNguoiDung/LayDanhSachKhoaHocChuaGhiDanh?TaiKhoan=${taiKhoan}`);
   },
   getPendingCourses: (taiKhoan) => {
-    return https.post(
-      "/api/QuanLyNguoiDung/LayDanhSachKhoaHocChoXetDuyet",
-      taiKhoan
-    );
+    return https.post("/api/QuanLyNguoiDung/LayDanhSachKhoaHocChoXetDuyet", taiKhoan);
   },
   getApprovedCourses: (taiKhoan) => {
-    return https.post(
-      "/api/QuanLyNguoiDung/LayDanhSachKhoaHocDaXetDuyet",
-      taiKhoan
-    );
+    return https.post("/api/QuanLyNguoiDung/LayDanhSachKhoaHocDaXetDuyet", taiKhoan);
   },
   getUnregisteredUsers: (maKhoaHoc) => {
-    return https.post(
-      "/api/QuanLyNguoiDung/LayDanhSachNguoiDungChuaGhiDanh",
-      maKhoaHoc
-    );
+    return https.post("/api/QuanLyNguoiDung/LayDanhSachNguoiDungChuaGhiDanh", maKhoaHoc);
   },
   getPendingUsers: (maKhoaHoc) => {
-    return https.post(
-      "/api/QuanLyNguoiDung/LayDanhSachHocVienChoXetDuyet",
-      maKhoaHoc
-    );
+    return https.post("/api/QuanLyNguoiDung/LayDanhSachHocVienChoXetDuyet", maKhoaHoc);
   },
   getCourseUsers: (maKhoaHoc) => {
-    return https.post(
-      "/api/QuanLyNguoiDung/LayDanhSachHocVienKhoaHoc",
-      maKhoaHoc
-    );
+    return https.post("/api/QuanLyNguoiDung/LayDanhSachHocVienKhoaHoc", maKhoaHoc);
   },
 };

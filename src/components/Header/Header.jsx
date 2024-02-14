@@ -138,7 +138,7 @@ const Header = () => {
       label: (
         <div>
           <NavLink
-            to="/info"
+            to="/profile"
             className="flex items-center duration-300 hover:text-orange-400"
             style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
             onClick={() => {
@@ -273,9 +273,7 @@ const Header = () => {
                 <NavLink
                   to="/"
                   className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link  lg:hover:bg-transparent lg:border-0 hover:text-red-500 lg:p-0"
-                  style={({ isActive }) =>
-                    isActive ? { color: "#e40707" } : {}
-                  }
+                  style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
                   onClick={() => {
                     dispatch(setNavbarActive(false));
                   }}
@@ -304,9 +302,7 @@ const Header = () => {
                 <NavLink
                   to="/course"
                   className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-red-500 lg:p-0"
-                  style={({ isActive }) =>
-                    isActive ? { color: "#e40707" } : {}
-                  }
+                  style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
                   onClick={() => {
                     dispatch(setNavbarActive(false));
                   }}
@@ -318,9 +314,7 @@ const Header = () => {
                 <NavLink
                   to="/blog"
                   className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-red-500 lg:p-0"
-                  style={({ isActive }) =>
-                    isActive ? { color: "#e40707" } : {}
-                  }
+                  style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
                   onClick={() => {
                     dispatch(setNavbarActive(false));
                   }}
@@ -332,9 +326,7 @@ const Header = () => {
                 <NavLink
                   to="/event"
                   className="block py-2 pl-3 pr-4 uppercase duration-300 border-b border-gray-100 nav-link hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-red-500 lg:p-0"
-                  style={({ isActive }) =>
-                    isActive ? { color: "#e40707" } : {}
-                  }
+                  style={({ isActive }) => (isActive ? { color: "#e40707" } : {})}
                   onClick={() => {
                     dispatch(setNavbarActive(false));
                   }}

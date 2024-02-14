@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer/Footer";
-import Loading from "../pages/Loading/Loading";
 import { useSelector } from "react-redux";
 import { UpSquareFilled } from "@ant-design/icons";
 import "./UserTemplate.scss";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Loading from "../components/Loading/Loading";
 
 const UserTemplate = () => {
   const isLoading = useSelector((state) => state.loading.isLoading);

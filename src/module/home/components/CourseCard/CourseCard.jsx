@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./CourseCard.module.scss";
 import { Divider } from "antd";
 import user from "../../../../assets/user_icon.png";
 import { BellOutlined } from "@ant-design/icons";
@@ -7,9 +6,9 @@ import { NavLink } from "react-router-dom";
 import ReactSample from "../../../../assets/card_react_sample.jpg";
 import { useDispatch } from "react-redux";
 import { setNavbarActive } from "../../../../redux/slices/navbarSlice";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { FcAlarmClock } from "react-icons/fc";
+import { MdCalendarMonth } from "react-icons/md";
+import { IoEyeSharp } from "react-icons/io5";
 const tempContent =
   "Lập trình Frontend là công việc sử dụng các ngôn ngữ HTML, CSS và JavaScript để thiết kế và xây dựng giao diện cho một trang web hoặc ứng dụng web mà người dùng có thể xem và tương tác trực tiếp";
 
@@ -63,19 +62,18 @@ const CourseCard = ({
           {moTa + tempContent}
         </NavLink>
         <div className="flex flex-wrap items-center justify-between pt-3 text-gray-500">
-          <div>
-            <AccessTimeIcon className="text-red-400 me-2" />
-            <span>72 giờ</span>
-          </div>
-          <div>
-            <CalendarMonthIcon className="text-orange-400 me-2" />
-
-            <span>12 tuần</span>
-          </div>
-          <div>
-            <RemoveRedEyeIcon className="text-blue-500 me-2" />
-            <span>{luotXem}</span>
-          </div>
+          <p>
+            <FcAlarmClock className="text-red-400 me-2" />
+            <>72 giờ</>
+          </p>
+          <p>
+            <MdCalendarMonth className="text-orange-400 me-2" />
+            <>12 tuần</>
+          </p>
+          <p>
+            <IoEyeSharp className="text-blue-500 me-2" />
+            <>{luotXem}</>
+          </p>
         </div>
       </div>
       <Divider className="m-0" />

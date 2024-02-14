@@ -16,7 +16,7 @@ export async function signinAPI(credentials) {
 export async function signupAPI(credentials) {
   try {
     const resp = await baseAPI.post("/quanlynguoidung/dangky", credentials);
-    return resp.data.content;
+    return resp.data;
   } catch (error) {
     if (error.response) {
       throw error.response.data?.content;
@@ -29,10 +29,10 @@ export const getUserList = async (tuKhoa) => {
   try {
     const response = await baseAPI.get("/QuanLyNguoiDung/LayDanhSachNguoiDung", {
       params: {
-        maNhom: "GP02",
+        maNhom: "GP09",
       },
     });
-    return response.data?.content;
+    return response.data;
   } catch (error) {
     throw error.response.data?.content;
   }
@@ -41,7 +41,7 @@ export const getUserList = async (tuKhoa) => {
 export const createUser = async (user) => {
   try {
     const response = await baseAPI.post("/QuanLyNguoiDung/ThemNguoiDung", user);
-    return response.data?.content;
+    return response.data;
   } catch (error) {
     throw error.response.data?.content;
   }
@@ -50,7 +50,7 @@ export const createUser = async (user) => {
 export const updateUser = async (user) => {
   try {
     const response = await baseAPI.post("/QuanLyNguoiDung/CapNhatThongTinNguoiDung", user);
-    return response.data?.content;
+    return response.data;
   } catch (error) {
     throw error.response.data?.content;
   }
@@ -63,7 +63,7 @@ export async function deleteUser(userAccount) {
         TaiKhoan: userAccount,
       },
     });
-    return response.data.content;
+    return response.data;
   } catch (error) {
     throw error.response.data.content;
   }
@@ -72,7 +72,34 @@ export async function deleteUser(userAccount) {
 export async function getUserIn4() {
   try {
     const response = await baseAPI.post("/QuanLyNguoiDung/ThongTinTaiKhoan");
-    return response.data?.content;
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data);
+    throw error.response.data?.content;
+  }
+}
+
+export async function getUserInfoAPI() {
+  try {
+    const response = await baseAPI.post("/QuanLyNguoiDung/ThongTinNguoiDung");
+    return response.data;
+  } catch (error) {
+    if (error) throw error.response.data?.content;
+  }
+}
+
+export async function getUserTypes() {
+  try {
+    const response = await baseAPI.get("/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung");
+    return response.data;
+  } catch (error) {
+    throw error.response.data?.content;
+  }
+}
+export async function userInfo() {
+  try {
+    const response = await baseAPI.post("/QuanLyNguoiDung/ThongTinNguoiDung");
+    return response.data;
   } catch (error) {
     throw error.response.data?.content;
   }
