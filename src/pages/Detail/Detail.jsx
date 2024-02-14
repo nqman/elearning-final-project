@@ -3,9 +3,7 @@ import teacherSample from "../../assets/home_carousel_01.jpg";
 import { Divider, message, notification } from "antd";
 import CourseCard from "../../module/home/components/CourseCard/CourseCard";
 import { courseService } from "../../apis/courseAPI";
-
 import { useNavigate, useParams } from "react-router-dom";
-// import getLocal from "../../module/auth/slices/authSlice";
 import {
   CaretRightOutlined,
   FileExcelOutlined,
@@ -15,7 +13,11 @@ import {
 } from "@ant-design/icons";
 import { selectCurrentUser } from "../../redux/slices/authSlice";
 import { useSelector } from "react-redux";
-
+import { PiStarThin } from "react-icons/pi";
+import { FaBook, FaCheck, FaClock, FaLayerGroup, FaUserGraduate } from "react-icons/fa";
+import { IoPlayCircle } from "react-icons/io5";
+import { FcAlarmClock, FcGraduationCap } from "react-icons/fc";
+import { FaBoltLightning, FaPhotoFilm } from "react-icons/fa6";
 const Detail = () => {
   const [course, setCourse] = useState([]);
   const [detail, setDetail] = useState({});
@@ -115,7 +117,7 @@ const Detail = () => {
   };
 
   return (
-    <div id="user__detail">
+    <div id="user_detail">
       {contextHolder}
       <div className="py-16 text-white bg-orange-400">
         <div className="px-4 mx-auto max-w-screen-2xl">
@@ -147,7 +149,8 @@ const Detail = () => {
               </div>
             </div>
             <div className="flex items-center gap-2 mb-5 sm:mb-0">
-              <i className="text-3xl fa-solid fa-graduation-cap text-main"></i>
+              <FcGraduationCap className="text-3xl text-teal-500" />
+
               <div>
                 <p className="text-sm text-gray-400">Lĩnh vực</p>
                 <p>{detail.danhMucKhoaHoc?.tenDanhMucKhoaHoc}</p>
@@ -157,11 +160,11 @@ const Detail = () => {
               <WechatOutlined className="block text-4xl sm:hidden" />
               <div>
                 <div className="flex items-center">
-                  <i className="text-yellow-300 fa-solid fa-star"></i>
-                  <i className="text-yellow-300 fa-solid fa-star"></i>
-                  <i className="text-yellow-300 fa-solid fa-star"></i>
-                  <i className="text-yellow-300 fa-solid fa-star"></i>
-                  <i className="text-yellow-300 fa-solid fa-star"></i>
+                  <PiStarThin className="text-yellow-500" />
+                  <PiStarThin className="text-yellow-500" />
+                  <PiStarThin className="text-yellow-500" />
+                  <PiStarThin className="text-yellow-500" />
+                  <PiStarThin className="text-yellow-500" />
                   <span className="font-medium ms-2">4.9</span>
                 </div>
                 <p className="text-sm text-gray-400 sm:text-right">100 đánh giá</p>
@@ -173,41 +176,41 @@ const Detail = () => {
           <div>
             <h3 className="mb-3 text-lg font-medium">Những gì bạn sẽ học</h3>
             <div className="flex flex-col gap-3 sm:gap-5 sm:flex-row">
-              <div className="sm:w-1/2">
+              <div className="sm:w-1/2 ">
                 <p>
-                  <i className="text-yellow-500 fa-solid fa-check"></i> Xây dựng các ứng dụng web
-                  mạnh mẽ, nhanh chóng, thân thiện với người dùng và phản ứng nhanh
+                  <FaCheck className="text-yellow-500 " /> Xây dựng các ứng dụng web mạnh mẽ, nhanh
+                  chóng, thân thiện với người dùng và phản ứng nhanh
                 </p>
                 <p className="my-3">
-                  <i className="text-yellow-500 fa-solid fa-check"></i> Đăng ký công việc được trả
-                  lương cao hoặc làm freelancer trong một trong những lĩnh vực được yêu cầu nhiều
-                  nhất mà bạn có thể tìm thấy trong web dev ngay bây giờ
+                  <FaCheck className="text-yellow-500" /> Đăng ký công việc được trả lương cao hoặc
+                  làm freelancer trong một trong những lĩnh vực được yêu cầu nhiều nhất mà bạn có
+                  thể tìm thấy trong web dev ngay bây giờ
                 </p>
                 <p className="my-3">
-                  <i className="text-yellow-500 fa-solid fa-check"></i> Cung cấp trải nghiệm người
-                  dùng tuyệt vời bằng cách tận dụng sức mạnh của JavaScript một cách dễ dàng
+                  <FaCheck className="text-yellow-500" /> Cung cấp trải nghiệm người dùng tuyệt vời
+                  bằng cách tận dụng sức mạnh của JavaScript một cách dễ dàng
                 </p>
                 <p>
-                  <i className="text-yellow-500 fa-solid fa-check"></i> Tìm hiểu tất cả về React
-                  Hooks và React Components
+                  <FaCheck className="text-yellow-500" /> Tìm hiểu tất cả về React Hooks và React
+                  Components
                 </p>
               </div>
               <div className="sm:w-1/2">
                 <p>
-                  <i className="text-yellow-500 fa-solid fa-check"></i> Thông thạo chuỗi công cụ hỗ
-                  trợ React, bao gồm cú pháp Javascript NPM, Webpack, Babel và ES6 / ES2015
+                  <FaCheck className="text-yellow-500" /> Thông thạo chuỗi công cụ hỗ trợ React, bao
+                  gồm cú pháp Javascript NPM, Webpack, Babel và ES6 / ES2015
                 </p>
                 <p className="my-3">
-                  <i className="text-yellow-500 fa-solid fa-check"></i> Nhận ra sức mạnh của việc
-                  xây dựng các thành phần có thể kết hợp
+                  <FaCheck className="text-yellow-500" /> Nhận ra sức mạnh của việc xây dựng các
+                  thành phần có thể kết hợp
                 </p>
                 <p className="my-3">
-                  <i className="text-yellow-500 fa-solid fa-check"></i> Hãy là kỹ sư giải thích cách
-                  hoạt động của Redux cho mọi người, bởi vì bạn biết rất rõ các nguyên tắc cơ bản
+                  <FaCheck className="text-yellow-500" /> Hãy là kỹ sư giải thích cách hoạt động của
+                  Redux cho mọi người, bởi vì bạn biết rất rõ các nguyên tắc cơ bản
                 </p>
                 <p>
-                  <i className="text-yellow-500 fa-solid fa-check"></i> Nắm vững các khái niệm cơ
-                  bản đằng sau việc cấu trúc các ứng dụng Redux
+                  <FaCheck className="text-yellow-500" /> Nắm vững các khái niệm cơ bản đằng sau
+                  việc cấu trúc các ứng dụng Redux
                 </p>
               </div>
             </div>
@@ -218,53 +221,54 @@ const Detail = () => {
             <div className="mb-10">
               <div className="flex items-center justify-between gap-5 p-5 bg-gray-100">
                 <h4 className="text-lg">MỤC I - GIỚI THIỆU</h4>
-                <button className="px-3 border-[1px] border-main text-main py-2 duration-300 hover:bg-main hover:text-white">
+                <button className="px-3 border-[1px] border-teal-500 text-teal-500 py-2 duration-300 hover:bg-teal-500 hover:text-white">
                   Xem Trước
                 </button>
               </div>
               <h5 className="py-3">Bài học</h5>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Các khái niệm về React Component</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
+
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Thiết lập môi trường cho Windows</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Tạo ứng dụng React - React-Scripts</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">
                     Ghi chú nhanh về dấu ngoặc kép cho string interpolation
                   </p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
@@ -273,64 +277,64 @@ const Detail = () => {
             <div className="mb-10">
               <div className="flex items-center justify-between gap-5 p-5 bg-gray-100">
                 <h4 className="text-lg">MỤC II - KIẾN THỨC CĂN BẢN</h4>
-                <button className="px-3 border-[1px] border-main text-main py-2 duration-300 hover:bg-main hover:text-white">
+                <button className="px-3 border-[1px] border-teal-500 text-teal-500 py-2 duration-300 hover:bg-teal-500 hover:text-white">
                   Xem Trước
                 </button>
               </div>
               <h5 className="py-3">Bài học</h5>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Trang chủ và thành phần thư mục</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Hướng dẫn khóa học + Liên kết Github</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Trang chủ thương mại điện tử + thiết lập SASS</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Tệp CSS và SCSS</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">
                     React 17: Cập nhật các gói + Phiên bản React mới nhất
                   </p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
@@ -339,40 +343,40 @@ const Detail = () => {
             <div className="mb-10">
               <div className="flex items-center justify-between gap-5 p-5 bg-gray-100">
                 <h4 className="text-lg">MỤC III - KIẾN THỨC CHUYÊN SÂU</h4>
-                <button className="px-3 border-[1px] border-main text-main py-2 duration-300 hover:bg-main hover:text-white">
+                <button className="px-3 border-[1px] border-teal-500 text-teal-500 py-2 duration-300 hover:bg-teal-500 hover:text-white">
                   Xem Trước
                 </button>
               </div>
               <h5 className="py-3">Bài học</h5>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">connect() and mapStateToProps</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Trạng thái thư mục vào Redux</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
               </div>
               <div className="flex items-center justify-between py-3 px-2 border-b-[1px] border-orange-400/50 duration-300 hover:shadow-lg">
                 <div className="flex items-center">
-                  <i className="fa-solid fa-circle-play text-main me-2"></i>
+                  <IoPlayCircle className="text-teal-500 me-2" />
                   <p className="line-clamp-1">Thành phần Tổng quan về Bộ sưu tập</p>
                 </div>
                 <div className="flex items-center justify-end flex-grow">
-                  <i className="fa-solid fa-clock text-main me-2"></i>
+                  <FcAlarmClock className="me-2" />
                   <p>15:00</p>
                 </div>
                 <div></div>
@@ -386,11 +390,12 @@ const Detail = () => {
               <img src={detail.hinhAnh} alt="Course Banner" />
             </div>
             <p className="my-5 text-2xl font-medium text-right">
-              <i className="text-lg text-orange-400 fa-solid fa-bolt-lightning"></i> 120.000
+              <FaBoltLightning className="text-lg text-orange-400" />
+              120.000
               <sup>đ</sup>
             </p>
             <button
-              className="w-full py-2 duration-300 border-[1px] border-main text-main hover:text-white hover:bg-main hover:scale-95"
+              className="w-full py-2 duration-300 border-[1px] border-teal-500 text-teal-500 hover:text-white hover:bg-teal-500 hover:scale-95"
               onClick={enrollCourse}
             >
               ĐĂNG KÝ
@@ -399,36 +404,36 @@ const Detail = () => {
               <p className="text-gray-500">
                 Ghi danh: <span className="font-medium text-black">22 học viên</span>
               </p>
-              <i className="text-orange-400 fa-solid fa-user-graduate"></i>
+              <FaUserGraduate className="text-orange-400" />
             </div>
             <div className="flex items-center justify-between py-5 border-b-[1px] border-gray-200">
               <p className="text-gray-500">
                 Thời gian: <span className="font-medium text-black">18 giờ</span>
               </p>
-              <i className="text-orange-400 fa-regular fa-clock"></i>
+              <FaClock className="text-orange-400 " />
             </div>
             <div className="flex items-center justify-between py-5 border-b-[1px] border-gray-200">
               <p className="text-gray-500">
                 Tổng: <span className="font-medium text-black">10 bài học</span>
               </p>
-              <i className="text-orange-400 fa-solid fa-book"></i>
+              <FaBook className="text-orange-400" />
             </div>
             <div className="flex items-center justify-between py-5 border-b-[1px] border-gray-200">
               <p className="text-gray-500">
                 Video: <span className="font-medium text-black">14 buổi</span>
               </p>
-              <i className="text-orange-400 fa-solid fa-photo-film"></i>
+              <FaPhotoFilm className="text-orange-400 fa-solid" />
             </div>
             <div className="flex items-center justify-between py-5 border-b-[1px] border-gray-200">
               <p className="text-gray-500">
                 Trình độ: <span className="font-medium text-black">trung bình</span>
               </p>
-              <i className="text-orange-400 fa-solid fa-layer-group"></i>
+              <FaLayerGroup className="text-orange-400" />
             </div>
             <input
               type="text"
               placeholder="Nhập Mã"
-              className="w-full p-3 mt-5 duration-300 border-b-2 border-gray-100 outline-none focus:border-main"
+              className="w-full p-3 mt-5 duration-300 border-b-2 border-gray-100 outline-none focus:border-teal-500"
             />
           </div>
         </div>

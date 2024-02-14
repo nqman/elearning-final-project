@@ -8,7 +8,7 @@ export const login = createAsyncThunk("auth/login", async (credentials) => {
   return data;
 });
 
-const getLocalData = () => {
+export const getLocalData = () => {
   return JSON.parse(localStorage.getItem("currentUser")) || null;
 };
 

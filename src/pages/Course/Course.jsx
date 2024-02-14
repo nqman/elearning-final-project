@@ -14,8 +14,8 @@ import { courseService } from "../../apis/courseAPI";
 import { Col, message, Pagination, Row } from "antd";
 import { CaretRightOutlined } from "@ant-design/icons";
 import { setPagination } from "../../redux/slices/coursesSlice";
-import CourseCards from "./CourseCards/CourseCards";
 import style from "./Course.module.scss";
+import CourseCard from "../../module/home/components/CourseCard";
 export default function Course() {
   const [course, setCourse] = useState([]);
   const [total, setTotal] = useState(0);
@@ -122,10 +122,10 @@ export default function Course() {
           <span>Danh sách khóa học</span>
         </div>
 
-        <div className="grid items-center mt-4 gap-y-10 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-items-center">
+        <div className="grid gap-10 px-4 mt-8 xl:px-0 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4">
           {course.map((item, index) => {
             return (
-              <CourseCards
+              <CourseCard
                 key={index}
                 info={item.danhMucKhoaHoc.tenDanhMucKhoaHoc}
                 hinhAnh={item.hinhAnh}
