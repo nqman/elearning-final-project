@@ -60,8 +60,7 @@ const AdminLogin = () => {
     }),
   });
   if (currentUser) {
-    // Nếu có thông tin đăng nhập của user => điều hướng về trang home
-    const url = searchParams.get("from") || "/";
+    const url = searchParams.get("from") || "/admin";
     return <Navigate to={url} replace />;
   }
   return (

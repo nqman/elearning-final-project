@@ -10,7 +10,7 @@ import { removeLocal, saveLocal } from "../../../../utils/localStorage";
 import { getAccountInfo } from "../../../../redux/slices/userSlice";
 import { userService } from "../../../../services/userServices";
 import { getLocalData } from "../../../../redux/slices/authSlice";
-
+import { FaRightToBracket } from "react-icons/fa6";
 const InfoDetail = () => {
   const [card, setCard] = useState(false);
   const [api, contextHolder] = notification.useNotification();
@@ -291,8 +291,8 @@ const InfoDetail = () => {
               window.location.href = "/login";
             }}
           >
+            <FaRightToBracket className="duration-300 group-hover:text-orange-400 me-2" />
             <p className="duration-300 me-2 group-hover:text-orange-400">Đăng Xuất</p>
-            <i className="duration-300 fa-solid fa-arrow-right-from-bracket group-hover:text-orange-400"></i>
           </div>
         </div>
       </div>

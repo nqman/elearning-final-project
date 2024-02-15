@@ -43,11 +43,15 @@ export default function Signin() {
   };
 
   const handleError = (errors) => {
-    console.log(errors);
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!",
+      footer: '<a href="#">Why do I have this issue?</a>',
+    });
   };
 
   if (currentUser) {
-    // Nếu có thông tin đăng nhập của user => điều hướng về trang home
     const url = searchParams.get("from") || "/";
     return <Navigate to={url} replace />;
   }

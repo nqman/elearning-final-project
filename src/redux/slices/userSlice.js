@@ -3,7 +3,7 @@ import { getLocalData } from "../../redux/slices/authSlice";
 import { userService } from "../../services/userServices";
 const initialState = {
   users: [],
-  loggedUser: getLocalData("user"),
+  loggedUser: getLocalData("currentUser"),
   selectedUser: {},
   accountInfo: {},
 };
@@ -19,7 +19,7 @@ export const getAccountInfo = createAsyncThunk("user/getAccountInfo", async () =
   return res.data;
 });
 export const userSlice = createSlice({
-  name: "user",
+  name: "currentUser",
   initialState,
   reducers: {
     setLoggedUser: (state, action) => {

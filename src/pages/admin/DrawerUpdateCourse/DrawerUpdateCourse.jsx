@@ -5,9 +5,9 @@ import { UploadOutlined } from "@ant-design/icons";
 import { Select, message } from "antd";
 import "./DrawerUpdateCourse.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { courseService } from "../../../services/courseServices";
 import { getAllCourses } from "../../../redux/slices/coursesSlice";
 import FormInput from "../../../components/FormInput/FormInput";
+import { courseService } from "../../../apis/courseAPI";
 
 const DrawerUpdateCourse = ({ setClose }) => {
   const [img, setImg] = useState("");

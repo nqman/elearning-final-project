@@ -5,11 +5,11 @@ import { Select, message } from "antd";
 import "./DraweAddCourse.scss";
 import moment from "moment";
 import { UploadOutlined } from "@ant-design/icons";
-import { courseService } from "../../../services/courseServices";
 import { useDispatch } from "react-redux";
 import { getAllCourses } from "../../../redux/slices/coursesSlice";
 import FormInput from "../../../components/FormInput/FormInput";
 import { getLocalData } from "../../../redux/slices/authSlice";
+import { courseService } from "../../../apis/courseAPI";
 
 const DrawerAddCourse = ({ setClose }) => {
   const [img, setImg] = useState("");

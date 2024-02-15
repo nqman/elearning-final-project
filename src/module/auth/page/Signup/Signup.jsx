@@ -6,7 +6,6 @@ import { object, string } from "yup";
 import { signupAPI } from "../../../../apis/userAPI";
 import formStyles from "../../components/formStyles.module.scss";
 import { Button } from "@mui/base";
-import { Link, Element, animateScroll as scroll } from "react-scroll";
 const validationSchema = object({
   taiKhoan: string().required("Tài khoản không được để trống"),
   matKhau: string()
@@ -53,28 +52,21 @@ export default function Signup() {
       setIsLoading(false);
     }
   };
-  const scrollToTop = () => {
-    scroll.scrollToTop();
-  };
+
   return (
     <div className={`${formStyles.form} `}>
-      <nav>
-        <Link to="top" smooth={true} duration={500}>
-          Back to Top
-        </Link>
-      </nav>
       <form
         noValidate
         onSubmit={handleSubmit(handleSignup)}
         className={`${formStyles.form_background}`}
       >
         <div className={` ${formStyles.form_container}`}>
-          <h1 className="mb-4 text-4xl font-semibold">Đăng kí</h1>
+          <h1 className="mb-2 text-4xl font-semibold">Đăng kí</h1>
           {/* TÀI KHOẢN INPUT  */}
           <div className={`${formStyles.form_input}`}>
             <input type="text" placeholder="Tài Khoản" {...register("taiKhoan")} />
             {errors.taiKhoan && (
-              <span className="mt-2 p-3 text-xs italic text-left text-red-500 sm:text-sm block">
+              <span className=" text-xs italic text-left text-red-500 sm:text-sm block">
                 {errors.taiKhoan.message}
               </span>
             )}
@@ -83,7 +75,7 @@ export default function Signup() {
           <div className={`${formStyles.form_input}`}>
             <input type="password" placeholder="Mật khẩu" {...register("matKhau")} />
             {errors.matKhau && (
-              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm block">
+              <span className="text-xs italic text-left text-red-500 sm:text-sm block">
                 {errors.matKhau.message}
               </span>
             )}
@@ -92,7 +84,7 @@ export default function Signup() {
           <div className={`${formStyles.form_input}`}>
             <input type="email" placeholder="Email" {...register("email")} />
             {errors.email && (
-              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm block">
+              <span className="text-xs italic text-left text-red-500 sm:text-sm block">
                 {errors.email.message}
               </span>
             )}
@@ -101,7 +93,7 @@ export default function Signup() {
           <div className={`${formStyles.form_input}`}>
             <input type="text" placeholder="Họ tên" {...register("hoTen")} />
             {errors.hoTen && (
-              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm block">
+              <span className="text-xs italic text-left text-red-500 sm:text-sm block">
                 {errors.hoTen.message}
               </span>
             )}
@@ -110,26 +102,23 @@ export default function Signup() {
           <div className={`${formStyles.form_input}`}>
             <input type="text" placeholder="SĐT" {...register("soDt")} />
             {errors.soDt && (
-              <span className="mt-2 text-xs italic text-left text-red-500 sm:text-sm block">
+              <span className="text-xs italic text-left text-red-500 sm:text-sm block">
                 {errors.soDt.message}
               </span>
             )}
           </div>
-          <div className={`${formStyles.form_input}`}>
-            <select {...register("manhom")}>
-              <option value="">Chọn mã nhóm</option>
-              <option value="GP01">GP01</option>
-              <option value="GP02">GP02</option>
-              <option value="GP03">GP03</option>
-            </select>
-          </div>
 
           {error && <p>{error}</p>}
-          {/* button submit */}
 
-          <Button type="submit" disabled={isLoading}>
-            Đăng Ký
-          </Button>
+          <div className="text-center mt-4">
+            <button
+              className="bg-[#3FAA8F] hover:bg-green-600 text-white font-bold px-10 py-3 rounded-full shadow-lg sm:mb-0 text-sm uppercase transition-transform duration-300 transform hover:scale-95 "
+              type="submit"
+              disabled={isLoading}
+            >
+              Đăng Kí
+            </button>
+          </div>
         </div>
       </form>
     </div>
