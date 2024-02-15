@@ -4,6 +4,12 @@ export const userService = {
   getUserTypes: () => {
     return baseAPI.get("/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung");
   },
+  login: (data) => {
+    return baseAPI.post("/api/QuanLyNguoiDung/DangNhap", data);
+  },
+  register: (data) => {
+    return baseAPI.post("/api/QuanLyNguoiDung/DangKy", data);
+  },
   userInfo: () => {
     return baseAPI.post("/QuanLyNguoiDung/ThongTinNguoiDung");
   },

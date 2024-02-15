@@ -12,7 +12,7 @@ export default function AdminRoute({ children }) {
     return <Navigate to={url} replace />;
   }
 
-  if (currentUser.maLoaiNguoiDung !== "QuanTri") {
+  if (currentUser.maLoaiNguoiDung !== "HV") {
     return <Navigate to="*" />;
   }
   return children || <Outlet />;

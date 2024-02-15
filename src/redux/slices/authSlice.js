@@ -18,12 +18,7 @@ const authSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  reducers: {
-    logout: (state) => {
-      localStorage.removeItem("currentUser");
-      state.currentUser = null;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state, action) => {
       state.isLoading = true;

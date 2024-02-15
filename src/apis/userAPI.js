@@ -87,5 +87,3 @@ export async function getUserInfoAPI() {
     if (error) throw error.response.data?.content;
   }
 }
-
-

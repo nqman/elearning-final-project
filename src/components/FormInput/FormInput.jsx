@@ -8,7 +8,7 @@ const FormInput = ({ id, type, placeholder, formik, errors, touched, value }) =>
   };
 
   return (
-    <div className="mb-5">
+    <div className="mb-3">
       <div id="form__input" className="rounded-md shadow-md">
         <input
           id={id}

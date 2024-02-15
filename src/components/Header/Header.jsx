@@ -160,12 +160,12 @@ const Header = () => {
         <div
           className="flex items-center duration-300 hover:text-orange-400"
           onClick={() => {
-            removeLocal("user");
+            removeLocal("currentUser");
             window.location.href = "/";
           }}
         >
           <LogoutOutlined className="rotate-180 me-2" />
-          <span>Đăng xuất</span>
+          <p>Đăng xuất</p>
         </div>
       ),
     },
