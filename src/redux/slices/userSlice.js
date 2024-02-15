@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getLocalData } from "../../redux/slices/authSlice";
-import { getUserIn4, getUserList } from "../../apis/userAPI";
+import { userService } from "../../services/userServices";
 const initialState = {
   users: [],
   loggedUser: getLocalData("user"),
@@ -9,12 +9,12 @@ const initialState = {
 };
 
 export const getAllUsers = createAsyncThunk("user/getAllUsers", async (tuKhoa = "") => {
-  const res = await getUserList(tuKhoa);
+  const res = await userService.getAllUsers(tuKhoa);
   return res.data;
 });
 
 export const getAccountInfo = createAsyncThunk("user/getAccountInfo", async () => {
-  const res = await getUserIn4();
+  const res = await userService.accountInfo();
 
   return res.data;
 });

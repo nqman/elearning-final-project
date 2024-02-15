@@ -1,5 +1,6 @@
 import React from "react";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { MdArrowUpward } from "react-icons/md";
+
 const BackToTop = () => {
   const handleBackToTop = () => {
     window.scroll(0, 0);
@@ -10,7 +11,7 @@ const BackToTop = () => {
         onClick={handleBackToTop}
         className="p-3 bg-teal-500 rounded-lg shadow-lg cursor-pointer"
       >
-        <ArrowUpwardIcon className="text-xl font-semibold text-white" />
+        <MdArrowUpward className="text-xl font-semibold text-white" />
       </div>
     </div>
   );

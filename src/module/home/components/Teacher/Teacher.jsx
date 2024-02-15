@@ -5,11 +5,13 @@ const Teachers = () => {
   // cau hinh cho slick carousel
   let settingsCarouser = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 1000,
     autoplay: true,
     slidesToShow: 5,
     slidesToScroll: 5,
+
     responsive: [
       {
         breakpoint: 1024,

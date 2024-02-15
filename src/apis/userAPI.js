@@ -69,15 +69,15 @@ export async function deleteUser(userAccount) {
   }
 }
 
-export async function getUserIn4() {
-  try {
-    const response = await baseAPI.post("/QuanLyNguoiDung/ThongTinTaiKhoan");
-    return response.data;
-  } catch (error) {
-    console.log(error.response.data);
-    throw error.response.data?.content;
-  }
-}
+// export async function accountInfo() {
+//   try {
+//     const response = await baseAPI.post("/QuanLyNguoiDung/ThongTinTaiKhoan");
+//     return response.data;
+//   } catch (error) {
+//     console.log(error.response.data);
+//     throw error.response.data?.content;
+//   }
+// }
 
 export async function getUserInfoAPI() {
   try {
@@ -88,19 +88,4 @@ export async function getUserInfoAPI() {
   }
 }
 
-export async function getUserTypes() {
-  try {
-    const response = await baseAPI.get("/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung");
-    return response.data;
-  } catch (error) {
-    throw error.response.data?.content;
-  }
-}
-export async function userInfo() {
-  try {
-    const response = await baseAPI.post("/QuanLyNguoiDung/ThongTinNguoiDung");
-    return response.data;
-  } catch (error) {
-    throw error.response.data?.content;
-  }
-}
+
