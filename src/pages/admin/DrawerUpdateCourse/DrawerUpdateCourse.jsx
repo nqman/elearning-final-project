@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { UploadOutlined } from "@ant-design/icons";
-import FormInput from "../FormInput/FormInput";
 import { Select, message } from "antd";
 import "./DrawerUpdateCourse.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { courseService } from "../../services/courseServices";
-import { getAllCourses } from "../../redux/slices/coursesSlice";
+import { courseService } from "../../../services/courseServices";
+import { getAllCourses } from "../../../redux/slices/coursesSlice";
+import FormInput from "../../../components/FormInput/FormInput";
 
 const DrawerUpdateCourse = ({ setClose }) => {
   const [img, setImg] = useState("");
@@ -75,9 +75,7 @@ const DrawerUpdateCourse = ({ setClose }) => {
       tenKhoaHoc: yup.string().required("Trường này không được để trống!"),
       moTa: yup.string().required("Trường này không được để trống!"),
       hinhAnh: yup.string().required("Trường này không được để trống!"),
-      maDanhMucKhoaHoc: yup
-        .string()
-        .required("Trường này không được để trống!"),
+      maDanhMucKhoaHoc: yup.string().required("Trường này không được để trống!"),
     }),
   });
 

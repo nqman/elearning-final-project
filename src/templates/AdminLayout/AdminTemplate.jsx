@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import Loading from "../components/Loading/Loading";
+import { useDispatch, useSelector } from "react-redux";
 import "./AdminTemplate.scss";
 import {
   CodeSandboxOutlined,
@@ -13,14 +12,24 @@ import {
 import { Layout, Menu, Button, theme, message, Dropdown } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
 import { Footer } from "antd/es/layout/layout";
-import favicon from "../assets/favicon.png";
-import tempUser from "../assets/home_carousel_01.jpg";
-import { getLocal, removeLocal } from "../utils/localStorage";
+import favicon from "../../assets/img/favicon.png";
+import tempUser from "../../assets/img/home_carousel_01.jpg";
+import { removeLocal } from "../../utils/localStorage";
+import { getLocalData } from "../../redux/slices/authSlice";
+import Loading from "../../components/Loading/Loading";
+import { setIsLoading } from "../../redux/slices/loadingSlice";
 
 const { Header, Sider, Content } = Layout;
 
 const AdminTemplate = () => {
   const isLoading = useSelector((state) => state.loading.isLoading);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setIsLoading(true));
+    setTimeout(() => {
+      dispatch(setIsLoading(false));
+    }, 1000);
+  }, []);
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
@@ -42,7 +51,7 @@ const AdminTemplate = () => {
       label: (
         <div
           onClick={() => {
-            removeLocal("user");
+            removeLocal("currentUser");
             window.location.href = "/admin/login";
           }}
         >
@@ -53,12 +62,12 @@ const AdminTemplate = () => {
   ];
 
   useEffect(() => {
-    const user = getLocal("user");
+    const user = getLocalData("currentUser");
     if (user && user.maLoaiNguoiDung === "GV") {
       setAdmin(user);
       message.success(`Chào mừng Admin - ${user.hoTen} đã quay lại!`);
     } else {
-      removeLocal("user");
+      removeLocal("currentUser");
       window.location.href = "/admin/login";
     }
   }, []);
@@ -77,18 +86,10 @@ const AdminTemplate = () => {
               {
                 key: "0",
                 icon: (
-                  <img
-                    src={favicon}
-                    alt="Favicon"
-                    className={`${collapsed ? "w-20" : "w-10"}`}
-                  />
+                  <img src={favicon} alt="Favicon" className={`${collapsed ? "w-20" : "w-10"}`} />
                 ),
                 label: (
-                  <NavLink
-                    to="/"
-                    className="text-sm text-black"
-                    target="_blank"
-                  >
+                  <NavLink to="/" className="text-sm text-black" target="_blank">
                     Cyber E-Learning
                   </NavLink>
                 ),

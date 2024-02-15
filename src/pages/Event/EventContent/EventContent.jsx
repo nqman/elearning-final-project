@@ -10,7 +10,7 @@ export default function EventContent() {
       <div className="py-16 mx-auto max-w-screen-2xl">
         <Row>
           <Col className={styles.eventImg} xs={24} lg={12}>
-            <img src={require("../../../assets/it.ef68b551.png")} alt="" />
+            <img src={require("../../../assets/img/it.ef68b551.png")} alt="" />
           </Col>
           <Col className={clsx(styles.eventItemText, "px-10 lg:px-0")} xs={24} lg={12}>
             <h1>SỰ KIỆN CÔNG NGHỆ DÀNH CHO STARTUP</h1>

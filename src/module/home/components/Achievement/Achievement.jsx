@@ -1,10 +1,10 @@
 import React from "react";
 import { CheckOutlined } from "@ant-design/icons";
-import course from "../../../../assets/achievement_course.png";
-import route from "../../../../assets/achievement_route.png";
-import system from "../../../../assets/achievement_system.png";
-import mentor from "../../../../assets/achievement_mentor.png";
-import certification from "../../../../assets/achievement_certification.png";
+import course from "../../../../assets/img/achievement_course.png";
+import route from "../../../../assets/img/achievement_route.png";
+import system from "../../../../assets/img/achievement_system.png";
+import mentor from "../../../../assets/img/achievement_mentor.png";
+import certification from "../../../../assets/img/achievement_certification.png";
 import "./Achievement.scss";
 
 const Achievement = () => {
@@ -14,20 +14,13 @@ const Achievement = () => {
         <div className="relative bg-blue-500 text-black col-span-1 row-span-2 p-5 text-white duration-300 md:col-span-2 pb-28 bg-main achievement-card lg:col-span-1">
           <div className="relative">
             <div className="flex items-center">
-              <img
-                src={course}
-                alt="course"
-                className="object-cover w-14 me-2"
-              />
-              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">
-                KHÓA HỌC
-              </h3>
+              <img src={course} alt="course" className="object-cover w-14 me-2" />
+              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">KHÓA HỌC</h3>
             </div>
             <p className="my-3">
-              <span className="font-bold">Học qua dự án thực tế</span>, học đi
-              đôi với hành, không lý thuyết lan man, phân tích cội nguồn của vấn
-              đề, xây dựng từ các ví dụ nhỏ đến thực thi một dự án lớn ngoài
-              thực tế để học viên học xong làm được ngay
+              <span className="font-bold">Học qua dự án thực tế</span>, học đi đôi với hành, không
+              lý thuyết lan man, phân tích cội nguồn của vấn đề, xây dựng từ các ví dụ nhỏ đến thực
+              thi một dự án lớn ngoài thực tế để học viên học xong làm được ngay
             </p>
             <ul className="">
               <li className="flex my-3 ">
@@ -48,10 +41,7 @@ const Achievement = () => {
               </li>
               <li className="flex my-3">
                 <CheckOutlined className="mt-1 me-2" />
-                <p>
-                  Học tập kinh nghiệm, qui trình làm dự án, các qui chuẩn trong
-                  dự án
-                </p>
+                <p>Học tập kinh nghiệm, qui trình làm dự án, các qui chuẩn trong dự án</p>
               </li>
               <li className="flex my-3">
                 <CheckOutlined className="mt-1 me-2" />
@@ -64,9 +54,7 @@ const Achievement = () => {
           <div className="relative">
             <div className="flex items-center">
               <img src={route} alt="route" className="object-cover w-14 me-2" />
-              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">
-                LỘ TRÌNH
-              </h3>
+              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">LỘ TRÌNH</h3>
             </div>
             <ul>
               <li className="flex my-3">
@@ -79,9 +67,7 @@ const Achievement = () => {
               </li>
               <li className="flex my-3">
                 <CheckOutlined className="mt-1 me-2" />
-                <p>
-                  Huấn luyện để phát triển năng lực và niềm đam mê lập trình
-                </p>
+                <p>Huấn luyện để phát triển năng lực và niềm đam mê lập trình</p>
               </li>
             </ul>
           </div>
@@ -89,22 +75,13 @@ const Achievement = () => {
         <div className="relative p-5 text-white duration-300 bg-blue-400 achievement-card">
           <div className="relative">
             <div className="flex items-center">
-              <img
-                src={system}
-                alt="system"
-                className="object-cover w-14 me-2"
-              />
-              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">
-                HỆ THỐNG
-              </h3>
+              <img src={system} alt="system" className="object-cover w-14 me-2" />
+              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">HỆ THỐNG</h3>
             </div>
             <ul>
               <li className="flex my-3">
                 <CheckOutlined className="mt-1 me-2" />
-                <p>
-                  Tự động chấm điểm trắc nghiệm và đưa câu hỏi tùy theo mức độ
-                  học viên
-                </p>
+                <p>Tự động chấm điểm trắc nghiệm và đưa câu hỏi tùy theo mức độ học viên</p>
               </li>
               <li className="flex my-3">
                 <CheckOutlined className="mt-1 me-2" />
@@ -113,8 +90,8 @@ const Achievement = () => {
               <li className="flex my-3">
                 <CheckOutlined className="mt-1 me-2" />
                 <p>
-                  Thống kê, so sánh khả năng học của các học viên cùng level để
-                  đưa ra mục tiêu học tập
+                  Thống kê, so sánh khả năng học của các học viên cùng level để đưa ra mục tiêu học
+                  tập
                 </p>
               </li>
             </ul>
@@ -123,14 +100,8 @@ const Achievement = () => {
         <div className="relative p-5 text-white duration-300 bg-purple-400 achievement-card">
           <div className="relative">
             <div className="flex items-center">
-              <img
-                src={mentor}
-                alt="mentor"
-                className="object-cover w-14 me-2"
-              />
-              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">
-                GIẢNG VIÊN
-              </h3>
+              <img src={mentor} alt="mentor" className="object-cover w-14 me-2" />
+              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">GIẢNG VIÊN</h3>
             </div>
             <ul>
               <li className="flex my-3">
@@ -151,14 +122,8 @@ const Achievement = () => {
         <div className="relative p-5 text-white duration-300 bg-red-400 achievement-card">
           <div className="relative">
             <div className="flex items-center">
-              <img
-                src={certification}
-                alt="certification"
-                className="object-cover w-14 me-2"
-              />
-              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">
-                CHỨNG NHẬN
-              </h3>
+              <img src={certification} alt="certification" className="object-cover w-14 me-2" />
+              <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">CHỨNG NHẬN</h3>
             </div>
             <ul>
               <li className="flex my-3">
@@ -167,10 +132,7 @@ const Achievement = () => {
               </li>
               <li className="flex my-3">
                 <CheckOutlined className="mt-1 me-2" />
-                <p>
-                  Hệ thống của chúng tôi cũng tạo ra cho bạn một CV trực tuyến
-                  độc đáo
-                </p>
+                <p>Hệ thống của chúng tôi cũng tạo ra cho bạn một CV trực tuyến độc đáo</p>
               </li>
               <li className="flex my-3">
                 <CheckOutlined className="mt-1 me-2" />

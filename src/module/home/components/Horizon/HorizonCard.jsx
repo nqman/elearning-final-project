@@ -1,5 +1,5 @@
 import React from "react";
-import ReactSample from "../../../../assets/card_react_sample.jpg";
+import ReactSample from "../../../../assets/img/card_react_sample.jpg";
 import { NavLink } from "react-router-dom";
 import {
   DisconnectOutlined,
@@ -7,7 +7,7 @@ import {
   SafetyCertificateOutlined,
   StarFilled,
 } from "@ant-design/icons";
-import userIcon from "../../../../assets/user_icon.png";
+import userIcon from "../../../../assets/img/user_icon.png";
 import { Divider, notification } from "antd";
 import "./HorizonCard.scss";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import loginBG from "../../assets/login_bg.png";
-import loginOverlay from "../../assets/login_overlay.png";
+import loginBG from "../../assets/img/login_bg.png";
+import loginOverlay from "../../assets/img/login_overlay.png";
 import "./login.module.scss";
 import Signin from "../../module/auth/page/Signin/Signin";
 import Signup from "../../module/auth/page/Signup/Signup";

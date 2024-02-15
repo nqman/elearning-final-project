@@ -20,13 +20,11 @@ export default function Signin() {
   const [searchParams] = useSearchParams();
 
   const { currentUser, isLoading, error } = useSelector((state) => state.auth);
-  console.log(currentUser);
   const dispatch = useDispatch();
 
   const handleSignin = async (credentials) => {
     try {
       await dispatch(login(credentials)).unwrap();
-      console.log(login);
       await Swal.fire({
         position: "top-center",
         icon: "success",
@@ -34,7 +32,6 @@ export default function Signin() {
         showConfirmButton: false,
         timer: 1500,
       });
-      // alert("Login success");
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -52,10 +49,8 @@ export default function Signin() {
   if (currentUser) {
     // Nếu có thông tin đăng nhập của user => điều hướng về trang home
     const url = searchParams.get("from") || "/";
-    console.log(url);
     return <Navigate to={url} replace />;
   }
-  console.log(currentUser);
   return (
     <div className={`${formStyles.form}`}>
       <div>

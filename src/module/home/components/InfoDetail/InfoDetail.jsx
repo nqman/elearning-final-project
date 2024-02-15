@@ -6,9 +6,10 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { FileExcelOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
 import "./InfoDetail.scss";
-import { getLocal, removeLocal, saveLocal } from "../../../../utils/localStorage";
+import { removeLocal, saveLocal } from "../../../../utils/localStorage";
 import { getAccountInfo } from "../../../../redux/slices/userSlice";
 import { userService } from "../../../../services/userServices";
+import { getLocalData } from "../../../../redux/slices/authSlice";
 
 const InfoDetail = () => {
   const [card, setCard] = useState(false);
@@ -27,11 +28,11 @@ const InfoDetail = () => {
       maLoaiNguoiDung: accountInfo.maLoaiNguoiDung,
     },
     onSubmit: (values) => {
-      const user = getLocal("user");
+      const user = getLocalData("currentUser");
       userService
         .updateUsers({ ...values, matKhau: accountInfo.matKhau })
         .then(() => {
-          saveLocal("user", {
+          saveLocal("currentUser", {
             ...user,
             hoTen: values.hoTen,
             email: values.email,
@@ -286,7 +287,7 @@ const InfoDetail = () => {
           <div
             className="flex items-center justify-center cursor-pointer group"
             onClick={() => {
-              removeLocal("user");
+              removeLocal("currentUser");
               window.location.href = "/login";
             }}
           >

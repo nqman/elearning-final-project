@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { setNavbarActive } from "../../redux/slices/navbarSlice";
 import "./CollapsedMenu.scss";
 import { setPagination } from "../../redux/slices/coursesSlice";
-import favicon from "../../assets/favicon.png";
+import favicon from "../../assets/img/favicon.png";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -225,9 +225,7 @@ const CollapsedMenu = () => {
             <img src={favicon} alt="Favicon" className="hidden w-20 sm:block" />
             <div>
               <p>Cyber E-Learning</p>
-              <p className="text-sm text-orange-400">
-                The Best Online Education
-              </p>
+              <p className="text-sm text-orange-400">The Best Online Education</p>
             </div>
           </div>
         }
@@ -268,10 +266,7 @@ const CollapsedMenu = () => {
             <div className="flex items-center justify-between">
               <p>CyberSoft © 2023 by BCS07 - G9</p>
               <div>
-                <NavLink
-                  to="https://www.facebook.com/lophocviet/"
-                  target="_blank"
-                >
+                <NavLink to="https://www.facebook.com/lophocviet/" target="_blank">
                   <i className="text-gray-500 duration-300 cursor-pointer fa-brands fa-facebook-f hover:text-blue-500 ms-2"></i>
                 </NavLink>
                 <NavLink

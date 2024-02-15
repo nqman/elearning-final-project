@@ -4,14 +4,14 @@
   position: relative;
   color: White;
   z-index: 20;
-  background: url("../../../assets/backroundTech.a989a5f8.jpg");
+  background: url("../../../assets/img/backroundTech.a989a5f8.jpg");
   background-position: 0;
   background-size: cover;
   background-repeat: no-repeat;
 
   &::after {
     content: "";
-    background: url("../../../assets/high-techbrain.2f38d2ab.png");
+    background: url("../../../assets/img/high-techbrain.2f38d2ab.png");
     position: absolute;
     z-index: -1;
     top: 0;

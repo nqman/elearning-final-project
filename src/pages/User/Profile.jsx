@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 import { Tabs, message, notification } from "antd";
 import "./Profile.scss";
-import avatar from "../../assets/home_carousel_06.jpg";
+import avatar from "../../assets/img/home_carousel_06.jpg";
 
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -20,7 +20,7 @@ import { getAccountInfo } from "../../redux/slices/userSlice";
 import InfoCourse from "../../module/home/components/InfoCourse/InfoCourse";
 import InfoDetail from "../../module/home/components/InfoDetail/InfoDetail";
 
-const Info = () => {
+export default function Profile() {
   const [account, setAccount] = useState({});
   const [card, setCard] = useState(false);
   const [api, contextHolder] = notification.useNotification();
@@ -228,6 +228,4 @@ const Info = () => {
       </div>
     </div>
   );
-};
-
-export default Info;
+}

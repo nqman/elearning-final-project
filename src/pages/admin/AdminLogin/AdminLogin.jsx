@@ -1,17 +1,22 @@
 import React from "react";
 import Lottie from "react-lottie";
-import * as animationAdminLogin from "../../assets/animation/admin_login.json";
-import loginBG from "../../assets/login_overlay.png";
-import loginFormBG from "../../assets/login_bg.png";
-import FormInput from "../FormInput/FormInput";
+import * as animationAdminLogin from "../../../assets/animation/admin_login.json";
+import loginBG from "../../../assets/img/login_overlay.png";
+import loginFormBG from "../../../assets/background-trang-tinh-khoi---nhe-nhang-nhin-la-yeu-14.png";
+// import loginFormBG from "../../../assets/img/login_bg.png";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { userService } from "../../services/userServices";
 import { message } from "antd";
-import { saveLocal } from "../../utils/localStorage";
-import { NavLink } from "react-router-dom";
+import { saveLocal } from "../../../utils/localStorage";
+import { NavLink, Navigate, useSearchParams } from "react-router-dom";
+import FormInput from "../../../components/FormInput/FormInput";
+import { login } from "../../../redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminLogin = () => {
+  const dispatch = useDispatch();
+  const { currentUser, isLoading, error } = useSelector((state) => state.auth);
+  const [searchParams] = useSearchParams();
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -26,27 +31,25 @@ const AdminLogin = () => {
       taiKhoan: "",
       matKhau: "",
     },
-    onSubmit: (values) => {
-      userService
-        .login(values)
-        .then((res) => {
-          if (res.data.maLoaiNguoiDung === "GV") {
-            saveLocal("user", res.data);
-            message.success("Đăng nhập thành công!");
-            setTimeout(() => {
-              window.location.href = "/admin";
-            }, [1000]);
-          } else {
-            message.error("Bạn không có quyền truy cập vào trang quản lý!");
-            setTimeout(() => {
-              window.location.href = "/";
-            }, [1000]);
-          }
-        })
-        .catch((err) => {
-          message.error(err.response.data);
-          formik.resetForm();
-        });
+    onSubmit: async (credentials) => {
+      try {
+        const resp = await dispatch(login(credentials)).unwrap();
+        if (resp.data.maLoaiNguoiDung === "GV") {
+          saveLocal("currentUser", resp.data);
+          message.success("Đăng nhập thành công!");
+          setTimeout(() => {
+            window.location.href = "/admin";
+          }, 1000);
+        } else {
+          message.error("Bạn không có quyền truy cập vào trang quản lý!");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 1000);
+        }
+      } catch (err) {
+        message.error(err.response.data);
+        formik.resetForm();
+      }
     },
     validationSchema: yup.object({
       taiKhoan: yup.string().required("Trường này không dược để trống!"),
@@ -56,7 +59,11 @@ const AdminLogin = () => {
         .min(3, "Mật khẩu cần có ít nhất 3 ký tự"),
     }),
   });
-
+  if (currentUser) {
+    // Nếu có thông tin đăng nhập của user => điều hướng về trang home
+    const url = searchParams.get("from") || "/";
+    return <Navigate to={url} replace />;
+  }
   return (
     <div
       className="min-h-screen"
@@ -82,10 +89,7 @@ const AdminLogin = () => {
           <p className="mb-8 text-sm text-gray-600">
             {"("}Đăng nhập bằng tài khoản giáo vụ để tới trang quản lý{")"}
           </p>
-          <form
-            className="w-full px-5 mx-auto sm:w-3/4 sm:px-0"
-            onSubmit={formik.handleSubmit}
-          >
+          <form className="w-full px-5 mx-auto sm:w-3/4 sm:px-0" onSubmit={formik.handleSubmit}>
             <FormInput
               id="taiKhoan"
               type="text"
@@ -121,7 +125,7 @@ const AdminLogin = () => {
                 </span>
               </NavLink>
             </div>
-            <button className="px-10 py-3 text-sm font-semibold text-white uppercase rounded-full bg-main hover:bg-[#36867b] duration-300 hover:scale-90 shadow-lg sm:mb-0 mb-5">
+            <button className="px-10 py-3 text-sm font-semibold text-white uppercase rounded-full bg-teal-400 hover:bg-[#36867b] duration-300 hover:scale-90 shadow-lg sm:mb-0 mb-5">
               Đăng nhập
             </button>
           </form>
