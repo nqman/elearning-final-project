@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import FormInput from "../FormInput/FormInput";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { Select, message } from "antd";
 import "./DraweAddCourse.scss";
 import moment from "moment";
-import { getLocal } from "../../utils/localStorage";
 import { UploadOutlined } from "@ant-design/icons";
-import { courseService } from "../../services/courseServices";
+import { courseService } from "../../../services/courseServices";
 import { useDispatch } from "react-redux";
-import { getAllCourses } from "../../redux/slices/coursesSlice";
+import { getAllCourses } from "../../../redux/slices/coursesSlice";
+import FormInput from "../../../components/FormInput/FormInput";
+import { getLocalData } from "../../../redux/slices/authSlice";
 
 const DrawerAddCourse = ({ setClose }) => {
   const [img, setImg] = useState("");
@@ -33,7 +33,7 @@ const DrawerAddCourse = ({ setClose }) => {
     onSubmit: (values) => {
       const date = new Date();
       const formatDate = moment(date).format("DD/MM/YYYY");
-      const { taiKhoan } = getLocal("user");
+      const { taiKhoan } = getLocalData("user");
       values = {
         ...values,
         ngayTao: formatDate,
@@ -69,9 +69,7 @@ const DrawerAddCourse = ({ setClose }) => {
       tenKhoaHoc: yup.string().required("Trường này không được để trống!"),
       moTa: yup.string().required("Trường này không được để trống!"),
       hinhAnh: yup.string().required("Trường này không được để trống!"),
-      maDanhMucKhoaHoc: yup
-        .string()
-        .required("Trường này không được để trống!"),
+      maDanhMucKhoaHoc: yup.string().required("Trường này không được để trống!"),
     }),
   });
 
@@ -195,11 +193,7 @@ const DrawerAddCourse = ({ setClose }) => {
             ""
           )}
           {formik.values.hinhAnh ? (
-            <img
-              src={img}
-              alt="Course Pic"
-              className="object-cover w-full h-56 mt-3"
-            />
+            <img src={img} alt="Course Pic" className="object-cover w-full h-56 mt-3" />
           ) : (
             <></>
           )}

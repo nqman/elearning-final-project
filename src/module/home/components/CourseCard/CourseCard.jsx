@@ -1,9 +1,9 @@
 import React from "react";
 import { Divider } from "antd";
-import user from "../../../../assets/user_icon.png";
+import user from "../../../../assets/img/user_icon.png";
 import { BellOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
-import ReactSample from "../../../../assets/card_react_sample.jpg";
+import ReactSample from "../../../../assets/img/card_react_sample.jpg";
 import { useDispatch } from "react-redux";
 import { setNavbarActive } from "../../../../redux/slices/navbarSlice";
 import { FcAlarmClock } from "react-icons/fc";

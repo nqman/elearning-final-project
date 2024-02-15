@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import FormInput from "../FormInput/FormInput";
 import { Select, message } from "antd";
-import "./DrawerUpdateUser.scss";
-import { userService } from "../../services/userServices";
-import { getAllUsers } from "../../redux/slices/userSlice";
+import { useDispatch } from "react-redux";
+import "./DrawerAddUser.scss";
+import { userService } from "../../../services/userServices";
+import { getAllUsers } from "../../../redux/slices/userSlice";
+import FormInput from "../../../components/FormInput/FormInput";
 
-const DrawerUpdateUser = ({ setClose }) => {
-  const selectedUser = useSelector((state) => state.user.selectedUser);
+export default function DrawerAddUsers({ setClose }) {
   const dispatch = useDispatch();
-  const [maLoaiNguoiDung, setMaLoaiNguoiDung] = useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -25,9 +23,9 @@ const DrawerUpdateUser = ({ setClose }) => {
     },
     onSubmit: (values) => {
       userService
-        .updateUsers(values)
+        .addUsers(values)
         .then(() => {
-          message.success("Cập nhật người dùng thành công!");
+          message.success("Thêm người dùng thành công!");
           dispatch(getAllUsers());
           setClose();
           formik.resetForm();
@@ -60,48 +58,11 @@ const DrawerUpdateUser = ({ setClose }) => {
     }),
   });
 
-  useEffect(() => {
-    setMaLoaiNguoiDung(selectedUser.maLoaiNguoiDung);
-    userService
-      .searchUsers(selectedUser.taiKhoan)
-      .then((res) => {
-        formik.setValues({
-          hoTen: selectedUser.hoTen,
-          email: selectedUser.email,
-          taiKhoan: selectedUser.taiKhoan,
-          maNhom: "GP09",
-          maLoaiNguoiDung: selectedUser.maLoaiNguoiDung,
-          soDT: res.data[0].soDt,
-          matKhau: res.data[0].matKhau,
-        });
-      })
-      .catch(() => {
-        message.error("Không tìm thấy tài khoản này!");
-      });
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedUser]);
-
   return (
-    <form id="drawer__user--update" onSubmit={formik.handleSubmit}>
+    <form id="drawer__user--add" onSubmit={formik.handleSubmit}>
       <p className="mb-5 text-sm text-gray-400">
-        Bạn có thể thay đổi các thông tin người dùng ngoại trừ tên tài khoản!
+        Vui lòng điền các trường sau để thêm người dùng mới vào hệ thống!
       </p>
-      <input
-        id="taiKhoan"
-        type="text"
-        value={formik.values.taiKhoan}
-        className="bg-[#eee] w-full shadow-md rounded-md mb-5 p-3 cursor-not-allowed text-gray-500"
-        disabled
-      />
-      <FormInput
-        id="matKhau"
-        type="password"
-        placeholder="Mật Khẩu"
-        formik={formik}
-        errors={formik.errors.matKhau}
-        touched={formik.touched.matKhau}
-        value={formik.values.matKhau}
-      />
       <FormInput
         id="hoTen"
         type="text"
@@ -111,6 +72,7 @@ const DrawerUpdateUser = ({ setClose }) => {
         touched={formik.touched.hoTen}
         value={formik.values.hoTen}
       />
+
       <FormInput
         id="email"
         type="text"
@@ -129,13 +91,30 @@ const DrawerUpdateUser = ({ setClose }) => {
         touched={formik.touched.soDT}
         value={formik.values.soDT}
       />
+      <FormInput
+        id="taiKhoan"
+        type="text"
+        placeholder="Tài Khoản"
+        formik={formik}
+        errors={formik.errors.taiKhoan}
+        touched={formik.touched.taiKhoan}
+        value={formik.values.taiKhoan}
+      />
+      <FormInput
+        id="matKhau"
+        type="password"
+        placeholder="Mật Khẩu"
+        formik={formik}
+        errors={formik.errors.matKhau}
+        touched={formik.touched.matKhau}
+        value={formik.values.matKhau}
+      />
       <Select
         id="maLoaiNguoiDung"
-        value={maLoaiNguoiDung}
+        defaultValue={formik.values.maLoaiNguoiDung}
         style={{ width: "100%" }}
         onChange={(value) => {
           formik.values.maLoaiNguoiDung = value;
-          setMaLoaiNguoiDung(value);
         }}
         options={[
           { value: "HV", label: "Học Viên" },
@@ -148,11 +127,9 @@ const DrawerUpdateUser = ({ setClose }) => {
           type="submit"
           className="px-10 py-3 text-sm font-semibold text-white uppercase duration-300 bg-orange-400 rounded-lg shadow-lg hover:bg-orange-600 hover:scale-90"
         >
-          Cập Nhật
+          Tạo
         </button>
       </div>
     </form>
   );
-};
-
-export default DrawerUpdateUser;
+}

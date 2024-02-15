@@ -6,7 +6,7 @@ import { object, string } from "yup";
 import { signupAPI } from "../../../../apis/userAPI";
 import formStyles from "../../components/formStyles.module.scss";
 import { Button } from "@mui/base";
-
+import { Link, Element, animateScroll as scroll } from "react-scroll";
 const validationSchema = object({
   taiKhoan: string().required("Tài khoản không được để trống"),
   matKhau: string()
@@ -53,16 +53,22 @@ export default function Signup() {
       setIsLoading(false);
     }
   };
-
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
   return (
-    // <div className="">
     <div className={`${formStyles.form} `}>
+      <nav>
+        <Link to="top" smooth={true} duration={500}>
+          Back to Top
+        </Link>
+      </nav>
       <form
         noValidate
         onSubmit={handleSubmit(handleSignup)}
         className={`${formStyles.form_background}`}
       >
-        <div className={`${formStyles.form_container}`}>
+        <div className={` ${formStyles.form_container}`}>
           <h1 className="mb-4 text-4xl font-semibold">Đăng kí</h1>
           {/* TÀI KHOẢN INPUT  */}
           <div className={`${formStyles.form_input}`}>

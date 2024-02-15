@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Header from "../Header";
+import Header from "../../components/Header";
 import { Outlet } from "react-router-dom";
-import Footer from "../Footer";
-import BackToTop from "../BackToTop";
+import Footer from "../../components/Footer";
+import BackToTop from "../../components/BackToTop";
 import { setIsLoading } from "../../redux/slices/loadingSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Loading from "../Loading/Loading";
+import Loading from "../../components/Loading/Loading";
 
 export default function MainLayout() {
   const { isLoading } = useSelector((state) => state.loading);

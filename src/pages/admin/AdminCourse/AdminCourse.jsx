@@ -1,34 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllCourses,
-  setSelectedCourse,
-} from "../../redux/slices/coursesSlice";
 import { Drawer, Popconfirm, Table, message } from "antd";
-import DrawerAddCourse from "../DrawerAddCourse/DrawerAddCourse";
 import "./AdminCourse.scss";
-import {
-  DeleteFilled,
-  EditFilled,
-  QuestionCircleOutlined,
-  SettingFilled,
-} from "@ant-design/icons";
-import ReactSample from "../../assets/card_react_sample.jpg";
-import { courseService } from "../../services/courseServices";
-import DrawerUpdateCourse from "../DrawerUpdateCourse/DrawerUpdateCourse";
+import { DeleteFilled, EditFilled, QuestionCircleOutlined, SettingFilled } from "@ant-design/icons";
+import ReactSample from "../../../assets/img/card_react_sample.jpg";
 import { NavLink } from "react-router-dom";
-
+import { courseService } from "../../../apis/courseAPI";
+import DrawerAddCourse from "../DrawerAddCourse/DrawerAddCourse";
+import DrawerUpdateCourse from "../DrawerUpdateCourse/DrawerUpdateCourse";
+import { getAllCourses, setSelectedCourse } from "../../../redux/slices/coursesSlice";
 const AdminCourse = () => {
   const courses = useSelector((state) => state.course.courses);
   const dispatch = useDispatch();
   const [add, setAdd] = useState(false);
   const [update, setUpdate] = useState(false);
-
   useEffect(() => {
     dispatch(getAllCourses());
-    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   const showDrawer = () => {
     setAdd(true);
   };
@@ -51,14 +39,10 @@ const AdminCourse = () => {
       .then(() => {
         const searchInput = document.getElementById("course__search").value;
         message.success("Xóa khóa học thành công!");
-        searchInput
-          ? dispatch(getAllCourses(searchInput))
-          : dispatch(getAllCourses());
+        searchInput ? dispatch(getAllCourses(searchInput)) : dispatch(getAllCourses());
       })
       .catch((err) => {
-        message.error(
-          `${err ? err.response.data : "Không tìm thấy khóa học này!"}`
-        );
+        message.error(`${err ? err.response.data : "Không tìm thấy khóa học này!"}`);
       });
   };
 
@@ -125,10 +109,7 @@ const AdminCourse = () => {
       key: "danhSach",
       align: "center",
       render: () => (
-        <NavLink
-          to="/admin/enroll"
-          className="italic text-blue-400 hover:underline"
-        >
+        <NavLink to="/admin/enroll" className="italic text-blue-400 hover:underline">
           Các Học Viên Ghi Danh
         </NavLink>
       ),
@@ -209,13 +190,7 @@ const AdminCourse = () => {
           }}
         />
       </div>
-      <Drawer
-        title="Thêm Khóa Học"
-        placement="right"
-        onClose={onClose}
-        open={add}
-        size="large"
-      >
+      <Drawer title="Thêm Khóa Học" placement="right" onClose={onClose} open={add} size="large">
         <DrawerAddCourse
           setClose={() => {
             onClose();

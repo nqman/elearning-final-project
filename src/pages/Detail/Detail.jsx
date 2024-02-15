@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import teacherSample from "../../assets/home_carousel_01.jpg";
+import teacherSample from "../../assets/img/home_carousel_01.jpg";
 import { Divider, message, notification } from "antd";
 import CourseCard from "../../module/home/components/CourseCard/CourseCard";
 import { courseService } from "../../apis/courseAPI";

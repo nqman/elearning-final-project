@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import FormInput from "../FormInput/FormInput";
-import { userService } from "../../services/userServices";
 import { Select, message } from "antd";
-import { useDispatch } from "react-redux";
-import { getAllUsers } from "../../redux/slices/userSlice";
-import "./DrawerAddUser.scss";
+import "./DrawerUpdateUser.scss";
+import { userService } from "../../../services/userServices";
+import { getAllUsers } from "../../../redux/slices/userSlice";
+import FormInput from "../../../components/FormInput/FormInput";
 
-const DrawerAddUser = ({ setClose }) => {
+const DrawerUpdateUser = ({ setClose }) => {
+  const selectedUser = useSelector((state) => state.user.selectedUser);
   const dispatch = useDispatch();
+  const [maLoaiNguoiDung, setMaLoaiNguoiDung] = useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -23,9 +25,9 @@ const DrawerAddUser = ({ setClose }) => {
     },
     onSubmit: (values) => {
       userService
-        .addUsers(values)
+        .updateUsers(values)
         .then(() => {
-          message.success("Thêm người dùng thành công!");
+          message.success("Cập nhật người dùng thành công!");
           dispatch(getAllUsers());
           setClose();
           formik.resetForm();
@@ -58,11 +60,47 @@ const DrawerAddUser = ({ setClose }) => {
     }),
   });
 
+  useEffect(() => {
+    setMaLoaiNguoiDung(selectedUser.maLoaiNguoiDung);
+    userService
+      .searchUsers(selectedUser.taiKhoan)
+      .then((res) => {
+        formik.setValues({
+          hoTen: selectedUser.hoTen,
+          email: selectedUser.email,
+          taiKhoan: selectedUser.taiKhoan,
+          maNhom: "GP09",
+          maLoaiNguoiDung: selectedUser.maLoaiNguoiDung,
+          soDT: res.data[0].soDt,
+          matKhau: res.data[0].matKhau,
+        });
+      })
+      .catch(() => {
+        message.error("Không tìm thấy tài khoản này!");
+      });
+  }, [selectedUser]);
+
   return (
-    <form id="drawer__user--add" onSubmit={formik.handleSubmit}>
+    <form id="drawer__user--update" onSubmit={formik.handleSubmit}>
       <p className="mb-5 text-sm text-gray-400">
-        Vui lòng điền các trường sau để thêm người dùng mới vào hệ thống!
+        Bạn có thể thay đổi các thông tin người dùng ngoại trừ tên tài khoản!
       </p>
+      <input
+        id="taiKhoan"
+        type="text"
+        value={formik.values.taiKhoan}
+        className="bg-[#eee] w-full shadow-md rounded-md mb-5 p-3 cursor-not-allowed text-gray-500"
+        disabled
+      />
+      <FormInput
+        id="matKhau"
+        type="password"
+        placeholder="Mật Khẩu"
+        formik={formik}
+        errors={formik.errors.matKhau}
+        touched={formik.touched.matKhau}
+        value={formik.values.matKhau}
+      />
       <FormInput
         id="hoTen"
         type="text"
@@ -90,30 +128,13 @@ const DrawerAddUser = ({ setClose }) => {
         touched={formik.touched.soDT}
         value={formik.values.soDT}
       />
-      <FormInput
-        id="taiKhoan"
-        type="text"
-        placeholder="Tài Khoản"
-        formik={formik}
-        errors={formik.errors.taiKhoan}
-        touched={formik.touched.taiKhoan}
-        value={formik.values.taiKhoan}
-      />
-      <FormInput
-        id="matKhau"
-        type="password"
-        placeholder="Mật Khẩu"
-        formik={formik}
-        errors={formik.errors.matKhau}
-        touched={formik.touched.matKhau}
-        value={formik.values.matKhau}
-      />
       <Select
         id="maLoaiNguoiDung"
-        defaultValue={formik.values.maLoaiNguoiDung}
+        value={maLoaiNguoiDung}
         style={{ width: "100%" }}
         onChange={(value) => {
           formik.values.maLoaiNguoiDung = value;
+          setMaLoaiNguoiDung(value);
         }}
         options={[
           { value: "HV", label: "Học Viên" },
@@ -126,11 +147,11 @@ const DrawerAddUser = ({ setClose }) => {
           type="submit"
           className="px-10 py-3 text-sm font-semibold text-white uppercase duration-300 bg-orange-400 rounded-lg shadow-lg hover:bg-orange-600 hover:scale-90"
         >
-          Tạo
+          Cập Nhật
         </button>
       </div>
     </form>
   );
 };
 
-export default DrawerAddUser;
+export default DrawerUpdateUser;

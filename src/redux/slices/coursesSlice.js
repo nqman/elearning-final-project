@@ -7,12 +7,12 @@ const initialState = {
   pagination: 1,
 };
 export const getAllCourses = createAsyncThunk("course/getAllCourses", async (tenKhoaHoc = "") => {
-  const res = await courseService.getListCourseAPI(tenKhoaHoc);
+  const res = await courseService.getAllCourses(tenKhoaHoc);
   return res.data;
 });
 
 export const courseSlice = createSlice({
-  name: "course",
+  name: "courses",
   initialState,
   reducers: {
     setSelectedCourse: (state, action) => {

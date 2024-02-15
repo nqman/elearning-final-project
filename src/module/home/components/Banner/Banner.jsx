@@ -1,9 +1,9 @@
 import React from "react";
-import HomeBanner1 from "../../../../assets/home_banner_01.png";
-import HomeBanner2 from "../../../../assets/home_banner_02.png";
-import HomeBanner3 from "../../../../assets/home_banner_03.png";
-import HomeBanner4 from "../../../../assets/home_banner_04.png";
-import HomeBanner5 from "../../../../assets/home_banner_05.png";
+import HomeBanner1 from "../../../../assets/img/home_banner_01.png";
+import HomeBanner2 from "../../../../assets/img/home_banner_02.png";
+import HomeBanner3 from "../../../../assets/img/home_banner_03.png";
+import HomeBanner4 from "../../../../assets/img/home_banner_04.png";
+import HomeBanner5 from "../../../../assets/img/home_banner_05.png";
 import "./Banner.scss";
 import { TypeAnimation } from "react-type-animation";
 import { NavLink } from "react-router-dom";
@@ -59,29 +59,10 @@ const Banner = () => {
         </NavLink>
       </div>
       <div className="relative order-1 w-full md:w-1/2 md:order-2">
-        <img
-          src={HomeBanner1}
-          alt="Home Banner 01"
-          className="object-cover w-full"
-        />
-        <img
-          id="cloud1"
-          src={HomeBanner3}
-          alt="Item Banner 3"
-          className="absolute object-cover"
-        />
-        <img
-          id="cloud2"
-          src={HomeBanner3}
-          alt="Item Banner 3"
-          className="absolute object-cover"
-        />
-        <img
-          id="cloud3"
-          src={HomeBanner3}
-          alt="Item Banner 3"
-          className="absolute object-cover"
-        />
+        <img src={HomeBanner1} alt="Home Banner 01" className="object-cover w-full" />
+        <img id="cloud1" src={HomeBanner3} alt="Item Banner 3" className="absolute object-cover" />
+        <img id="cloud2" src={HomeBanner3} alt="Item Banner 3" className="absolute object-cover" />
+        <img id="cloud3" src={HomeBanner3} alt="Item Banner 3" className="absolute object-cover" />
         <img
           id="code"
           src={HomeBanner4}

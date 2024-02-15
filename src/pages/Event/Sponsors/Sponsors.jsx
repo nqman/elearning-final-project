@@ -1,17 +1,17 @@
 import React from "react";
-import viettel from "../../../assets/viettel.jpg";
-import bidv from "../../../assets/bidv.jpg";
-import vingroup from "../../../assets/logo-vingroup1.jpg";
-import momo from "../../../assets/momo.png";
-import bgCreators from "../../../assets/lightTech.32807735.jpg";
-import creator1 from "../../../assets/home_carousel_01.jpg";
-import creator2 from "../../../assets/home_carousel_02.jpg";
-import creator3 from "../../../assets/home_carousel_03.jpg";
-import creator4 from "../../../assets/home_carousel_04.jpg";
-import creator5 from "../../../assets/home_carousel_05.jpg";
-import creator6 from "../../../assets/home_carousel_06.jpg";
-import creator7 from "../../../assets/home_carousel_07.jpg";
-import creator8 from "../../../assets/home_carousel_08.jpg";
+import viettel from "../../../assets/img/viettel.jpg";
+import bidv from "../../../assets/img/bidv.jpg";
+import vingroup from "../../../assets/img/logo-vingroup1.jpg";
+import momo from "../../../assets/img/momo.png";
+import bgCreators from "../../../assets/img/lightTech.32807735.jpg";
+import creator1 from "../../../assets/img/home_carousel_01.jpg";
+import creator2 from "../../../assets/img/home_carousel_02.jpg";
+import creator3 from "../../../assets/img/home_carousel_03.jpg";
+import creator4 from "../../../assets/img/home_carousel_04.jpg";
+import creator5 from "../../../assets/img/home_carousel_05.jpg";
+import creator6 from "../../../assets/img/home_carousel_06.jpg";
+import creator7 from "../../../assets/img/home_carousel_07.jpg";
+import creator8 from "../../../assets/img/home_carousel_08.jpg";
 import "./Sponsors.module.scss";
 
 export default function Sponsors() {

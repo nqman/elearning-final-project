@@ -16,7 +16,7 @@ import { setNavbarActive } from "../../redux/slices/navbarSlice";
 import CollapsedMenu from "../CollapsedMenu/CollapsedMenu";
 import "./Header.scss";
 import { setPagination } from "../../redux/slices/coursesSlice";
-import favicon from "../../assets/favicon.png";
+import favicon from "../../assets/img/favicon.png";
 import { removeLocal } from "../../utils/localStorage";
 
 function getWindowSize() {

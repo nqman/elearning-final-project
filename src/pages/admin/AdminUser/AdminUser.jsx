@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Drawer, Popconfirm, Space, Table, Tag, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllUsers,
-  setSearchUser,
-  setSelectedUser,
-} from "../../redux/slices/userSlice";
+import { getAllUsers, setSearchUser, setSelectedUser } from "../../../redux/slices/userSlice";
 import { QuestionCircleOutlined, SettingFilled } from "@ant-design/icons";
-import DrawerAddUser from "../DrawerAddUser/DrawerAddUser";
-import DrawerUpdateUser from "../DrawerUpdateUser/DrawerUpdateUser";
 import "./AdminUser.scss";
-import { userService } from "../../services/userServices";
-import { getLocal } from "../../utils/localStorage";
+import { userService } from "../../../services/userServices";
 import { NavLink } from "react-router-dom";
+import DrawerUpdateUser from "../DrawerUpdateUser/DrawerUpdateUser";
+import { getLocalData } from "../../../redux/slices/authSlice";
+import DrawerAddUsers from "../DrawerAddUser/DrawerAddUsers";
 
 const AdminUser = () => {
   const users = useSelector((state) => state.user.users);
@@ -41,25 +37,20 @@ const AdminUser = () => {
       .then(() => {
         const searchInput = document.getElementById("user__search").value;
         message.success("Xóa người dùng thành công!");
-        searchInput
-          ? dispatch(getAllUsers(searchInput))
-          : dispatch(getAllUsers());
+        searchInput ? dispatch(getAllUsers(searchInput)) : dispatch(getAllUsers());
       })
       .catch((err) => {
-        message.error(
-          `${err ? err.response.data : "Không tìm thấy tài khoản này!"}`
-        );
+        message.error(`${err ? err.response.data : "Không tìm thấy tài khoản này!"}`);
       });
   };
 
   useEffect(() => {
-    const localUser = getLocal("user");
+    const localUser = getLocalData("currentUser");
     if (localUser) {
       dispatch(getAllUsers());
     } else {
       window.location.href = "/admin/login";
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const columns = [
@@ -72,7 +63,6 @@ const AdminUser = () => {
     {
       title: "Tài Khoản",
       dataIndex: "taiKhoan",
-      key: "taiKhoan",
       render: (text) => <>{text ? text : "UNKNOWN"}</>,
     },
     {
@@ -96,10 +86,7 @@ const AdminUser = () => {
       key: "danhSach",
       align: "center",
       render: () => (
-        <NavLink
-          to="/admin/enroll"
-          className="italic text-blue-400 hover:underline"
-        >
+        <NavLink to="/admin/enroll" className="italic text-blue-400 hover:underline">
           Các Khóa Học Ghi Danh
         </NavLink>
       ),
@@ -215,29 +202,15 @@ const AdminUser = () => {
         scroll={{ x: 1280 }}
         pagination={{ pageSize: 7 }}
       />
-      <Drawer
-        title="Thêm Người Dùng"
-        placement="right"
-        onClose={onClose}
-        open={add}
-      >
-        <DrawerAddUser
+      <Drawer title="Thêm Người Dùng" placement="right" onClose={onClose} open={add}>
+        <DrawerAddUsers
           setClose={() => {
             onClose();
           }}
         />
       </Drawer>
-      <Drawer
-        title="Cập Nhật Người Dùng"
-        placement="right"
-        onClose={onCloseUpdate}
-        open={update}
-      >
-        <DrawerUpdateUser
-          setClose={() => {
-            onCloseUpdate();
-          }}
-        />
+      <Drawer title="Cập Nhật Người Dùng" placement="right" onClose={onCloseUpdate} open={update}>
+        <DrawerUpdateUser setClose={() => {}} />
       </Drawer>
     </div>
   );
