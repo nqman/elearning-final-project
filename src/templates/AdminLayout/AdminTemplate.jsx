@@ -165,7 +165,7 @@ const AdminTemplate = () => {
             }}
             className="py-3 bg-white"
           >
-            Cyber E-Learning © 2023 by BCS07 | G9. All Rights Reserved.
+            Cyber E-Learning © 2023. All Rights Reserved.
           </Footer>
         </Layout>
       </Layout>

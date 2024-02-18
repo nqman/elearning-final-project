@@ -9,9 +9,9 @@ const BackToTop = () => {
     <div className="fixed bottom-3 right-3 z-50">
       <div
         onClick={handleBackToTop}
-        className="p-3 bg-teal-500 rounded-lg shadow-lg cursor-pointer"
+        className="p-3 bg-teal-500 rounded-lg shadow-lg cursor-pointer "
       >
-        <MdArrowUpward className="text-xl font-semibold text-white" />
+        <MdArrowUpward className="text-xl font-semibold text-white flex" />
       </div>
     </div>
   );

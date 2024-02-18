@@ -1,21 +1,31 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate, useSearchParams } from "react-router-dom";
-import formStyles from "../../components/formStyles.module.scss";
+import { NavLink, Navigate, useSearchParams } from "react-router-dom";
+import { useFormik } from "formik";
+import * as yup from "yup";
 import Swal from "sweetalert2";
 import { login } from "../../../../redux/slices/authSlice";
+import FormInput from "../../../../components/FormInput/FormInput";
 export default function Signin() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
+  const formik = useFormik({
+    initialValues: {
       taiKhoan: "",
       matKhau: "",
     },
-    mode: "onSubmit",
+    onSubmit: (values) => {
+      handleSignin(formik.values);
+    },
+    validationSchema: yup.object({
+      taiKhoan: yup.string().required("Trường này không dược để trống!"),
+      matKhau: yup
+        .string()
+        .required("Trường này không được để trống!")
+        .matches(
+          /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z]).{8,}$/,
+          "Mật khẩu cần ít nhất 8 ký tự, gồm chữ, số và ký tự in hoa"
+        ),
+    }),
   });
   const [searchParams] = useSearchParams();
 
@@ -56,49 +66,39 @@ export default function Signin() {
     return <Navigate to={url} replace />;
   }
   return (
-    <div className={`${formStyles.form}`}>
-      <div>
-        <form
-          onSubmit={handleSubmit(handleSignin, handleError)}
-          className={`${formStyles.form_background}`}
-        >
-          <div className={`${formStyles.form_container}`}>
-            <h1 className="mb-2 text-4xl font-semibold">Đăng nhập</h1>
-            <p className="mb-8 text-sm text-gray-400">
-              {"("}Hoặc sử dụng tài khoản bạn vừa đăng ký{")"}
-            </p>
-            <div className={`${formStyles.form_input}`}>
-              <div className="rounded-md shadow-md">
-                <input
-                  placeholder="Tài Khoản"
-                  {...register("taiKhoan")}
-                  className="w-full p-3 duration-300 rounded-md outline-none"
-                />
-                {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
-              </div>
-            </div>
-            <div className={`${formStyles.form_input}`}>
-              <input
-                className="w-full p-3 duration-300 rounded-md outline-none"
-                type="password"
-                placeholder="Mật Khẩu"
-                {...register("matKhau")}
-              />
-              {errors.matKhau && <p>{errors.matKhau.message}</p>}
-            </div>
-
-            <div className="text-center mt-4">
-              <button
-                className="bg-[#3FAA8F] hover:bg-green-600 text-white font-bold px-10 py-3 rounded-full shadow-lg sm:mb-0 text-sm uppercase transition-transform duration-300 transform hover:scale-95 "
-                type="submit"
-                disabled={isLoading}
-              >
-                Đăng Nhập
-              </button>
-            </div>
-          </div>
-        </form>
+    <form className="text-center" onSubmit={formik.handleSubmit}>
+      <h1 className="mb-2 text-4xl font-semibold">Đăng Nhập</h1>
+      <p className="mb-8 text-sm text-gray-400">
+        {"("}Hoặc sử dụng tài khoản bạn vừa đăng ký{")"}
+      </p>
+      <FormInput
+        id="taiKhoan"
+        type="text"
+        placeholder="Tài Khoản"
+        formik={formik}
+        errors={formik.errors.taiKhoan}
+        touched={formik.touched.taiKhoan}
+        value={formik.values.taiKhoan}
+      />
+      <FormInput
+        id="matKhau"
+        type="password"
+        placeholder="Mật Khẩu"
+        formik={formik}
+        errors={formik.errors.matKhau}
+        touched={formik.touched.matKhau}
+        value={formik.values.matKhau}
+      />
+      <div className="mb-3 sm:mt-8">
+        <NavLink to="/login">
+          <span className="text-sm italic duration-300 cursor-pointer hover:text-orange-400 hover:underline">
+            Quên mật khẩu?
+          </span>
+        </NavLink>
       </div>
-    </div>
+      <button className="px-10 py-3 text-sm font-semibold text-white uppercase rounded-full bg-teal-500 hover:bg-[#36867b] duration-300 hover:scale-90 shadow-lg sm:mb-0 mb-5">
+        Đăng nhập
+      </button>
+    </form>
   );
 }
