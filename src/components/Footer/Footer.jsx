@@ -1,12 +1,12 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import style from "./Footer.module.scss";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { FaChevronRight } from "react-icons/fa";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
+import { FaPhoneAlt } from "react-icons/fa";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 
@@ -26,8 +26,10 @@ export default function Footer() {
           <div className={style.menuFooter}>
             <ul>
               <li>
-                <PhoneRoundedIcon className={style.iconSize} />
-                <span>1800-123-4567</span>
+                <p>
+                  <FaPhoneAlt className={style.iconSize} />
+                  1800-123-4567
+                </p>
               </li>
 
               <li>
@@ -51,16 +53,16 @@ export default function Footer() {
             <div className={style.menuFooter}>
               <ul>
                 <li>
-                  <ChevronRightIcon /> Home
+                  <FaChevronRight /> Home
                 </li>
                 <li>
-                  <ChevronRightIcon /> Service
+                  <FaChevronRight /> Service
                 </li>
                 <li>
-                  <ChevronRightIcon /> Group
+                  <FaChevronRight /> Group
                 </li>
                 <li>
-                  <ChevronRightIcon /> Blog
+                  <FaChevronRight /> Blog
                 </li>
               </ul>
             </div>
@@ -74,16 +76,16 @@ export default function Footer() {
             <div className={style.menuFooter}>
               <ul>
                 <li>
-                  <ChevronRightIcon /> Front End
+                  <FaChevronRight /> Front End
                 </li>
                 <li>
-                  <ChevronRightIcon /> Back End
+                  <FaChevronRight /> Back End
                 </li>
                 <li>
-                  <ChevronRightIcon /> Full stack
+                  <FaChevronRight /> Full stack
                 </li>
                 <li>
-                  <ChevronRightIcon /> Node Js
+                  <FaChevronRight /> Node Js
                 </li>
               </ul>
             </div>

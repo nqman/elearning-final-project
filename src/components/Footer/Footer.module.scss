@@ -107,6 +107,8 @@ input {
   display: inline-block;
 }
 .iconSize {
+  vertical-align: unset;
+  font-size: 20px;
   line-height: 30px;
   color: #fff;
   background: #41b294;

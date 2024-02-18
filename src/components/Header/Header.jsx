@@ -29,7 +29,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const navigate = useNavigate();
-  const loggedUser = useSelector((state) => state.user.loggedUser);
+  const { currentUser } = useSelector((state) => state.auth);
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
@@ -241,7 +241,7 @@ const Header = () => {
                 onClick={clickSearch}
               />
             </div>
-            {loggedUser ? (
+            {currentUser ? (
               <Dropdown
                 menu={{
                   items: userOptions,
