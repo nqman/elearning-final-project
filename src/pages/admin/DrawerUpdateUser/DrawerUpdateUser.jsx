@@ -8,7 +8,7 @@ import { userService } from "../../../services/userServices";
 import { getAllUsers } from "../../../redux/slices/userSlice";
 import FormInput from "../../../components/FormInput/FormInput";
 
-const DrawerUpdateUser = ({ setClose }) => {
+export default function DrawerUpdateUser({ setClose }) {
   const selectedUser = useSelector((state) => state.user.selectedUser);
   const dispatch = useDispatch();
   const [maLoaiNguoiDung, setMaLoaiNguoiDung] = useState("");
@@ -152,6 +152,4 @@ const DrawerUpdateUser = ({ setClose }) => {
       </div>
     </form>
   );
-};
-
-export default DrawerUpdateUser;
+}

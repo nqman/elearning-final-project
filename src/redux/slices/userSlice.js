@@ -1,9 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getLocalData } from "../../redux/slices/authSlice";
 import { userService } from "../../services/userServices";
 const initialState = {
   users: [],
-  loggedUser: getLocalData("currentUser"),
   selectedUser: {},
   accountInfo: {},
 };
@@ -22,11 +20,6 @@ export const userSlice = createSlice({
   name: "currentUser",
   initialState,
   reducers: {
-    setLoggedUser: (state, action) => {
-      if (state.loggedUser === "") {
-        state.loggedUser = action.payload;
-      }
-    },
     setSelectedUser: (state, action) => {
       state.selectedUser = action.payload;
     },
@@ -44,5 +37,5 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setLoggedUser, setSelectedUser, setSearchUser } = userSlice.actions;
+export const { setSelectedUser, setSearchUser } = userSlice.actions;
 export default userSlice.reducer;

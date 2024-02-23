@@ -11,6 +11,7 @@ import { getAccountInfo } from "../../../../redux/slices/userSlice";
 import { userService } from "../../../../services/userServices";
 import { getLocalData } from "../../../../redux/slices/authSlice";
 import { FaRightToBracket } from "react-icons/fa6";
+import { RiAdminFill } from "react-icons/ri";
 const InfoDetail = () => {
   const [card, setCard] = useState(false);
   const [api, contextHolder] = notification.useNotification();
@@ -293,6 +294,15 @@ const InfoDetail = () => {
           >
             <FaRightToBracket className="duration-300 group-hover:text-orange-400 me-2" />
             <p className="duration-300 me-2 group-hover:text-orange-400">Đăng Xuất</p>
+          </div>
+          <div
+            className="flex items-center justify-center cursor-pointer group"
+            onClick={() => {
+              window.location.href = "/admin";
+            }}
+          >
+            <RiAdminFill className="duration-300 group-hover:text-orange-400 me-2" />
+            <p className="duration-300 me-2 group-hover:text-orange-400">Đến trang admin</p>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import "./DrawerAddUser.scss";
 import { userService } from "../../../services/userServices";
 import { getAllUsers } from "../../../redux/slices/userSlice";
 import FormInput from "../../../components/FormInput/FormInput";
+import { set } from "react-hook-form";
 
 export default function DrawerAddUsers({ setClose }) {
   const dispatch = useDispatch();

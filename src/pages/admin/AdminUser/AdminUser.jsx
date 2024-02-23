@@ -118,7 +118,7 @@ const AdminUser = () => {
                   showUpdateDrawer(record);
                 }}
               >
-                Cập nhật
+                Chỉnh sửa
               </button>
               <Popconfirm
                 title="Xóa Người Dùng"
@@ -210,7 +210,11 @@ const AdminUser = () => {
         />
       </Drawer>
       <Drawer title="Cập Nhật Người Dùng" placement="right" onClose={onCloseUpdate} open={update}>
-        <DrawerUpdateUser setClose={() => {}} />
+        <DrawerUpdateUser
+          setClose={() => {
+            onCloseUpdate();
+          }}
+        />
       </Drawer>
     </div>
   );
