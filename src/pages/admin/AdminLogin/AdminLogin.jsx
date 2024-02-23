@@ -3,15 +3,14 @@ import Lottie from "react-lottie";
 import * as animationAdminLogin from "../../../assets/animation/admin_login.json";
 import loginBG from "../../../assets/img/login_overlay.png";
 import loginFormBG from "../../../assets/background-trang-tinh-khoi---nhe-nhang-nhin-la-yeu-14.png";
-// import loginFormBG from "../../../assets/img/login_bg.png";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { message } from "antd";
-import { saveLocal } from "../../../utils/localStorage";
 import { NavLink, Navigate, useSearchParams } from "react-router-dom";
 import FormInput from "../../../components/FormInput/FormInput";
 import { login } from "../../../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { message } from "antd";
+import Swal from "sweetalert2";
 
 const AdminLogin = () => {
   const dispatch = useDispatch();
@@ -32,24 +31,7 @@ const AdminLogin = () => {
       matKhau: "",
     },
     onSubmit: async (credentials) => {
-      try {
-        const resp = await dispatch(login(credentials)).unwrap();
-        if (resp.data.maLoaiNguoiDung === "GV") {
-          saveLocal("currentUser", resp.data);
-          message.success("Đăng nhập thành công!");
-          setTimeout(() => {
-            window.location.href = "/admin";
-          }, 1000);
-        } else {
-          message.error("Bạn không có quyền truy cập vào trang quản lý!");
-          setTimeout(() => {
-            window.location.href = "/";
-          }, 1000);
-        }
-      } catch (err) {
-        message.error(err.response.data);
-        formik.resetForm();
-      }
+      handleSiginAdmin(formik.values);
     },
     validationSchema: yup.object({
       taiKhoan: yup.string().required("Trường này không dược để trống!"),
@@ -59,8 +41,30 @@ const AdminLogin = () => {
         .min(3, "Mật khẩu cần có ít nhất 3 ký tự"),
     }),
   });
+  const handleSiginAdmin = async (credentials) => {
+    try {
+      const resp = await dispatch(login(credentials)).unwrap();
+      if (resp.maLoaiNguoiDung === "GV") {
+        message.success("Đăng nhập thành công!");
+        setTimeout(() => {
+          window.location.href = "/admin";
+        }, 1000);
+      } else {
+        await Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    } catch (err) {
+      message.error(err.response.data);
+      formik.resetForm();
+    }
+  };
   if (currentUser) {
-    const url = searchParams.get("from") || "/admin";
+    const url = searchParams.get("from") || "/";
     return <Navigate to={url} replace />;
   }
   return (

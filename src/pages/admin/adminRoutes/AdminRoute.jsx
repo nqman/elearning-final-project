@@ -7,7 +7,6 @@ export default function AdminRoute({ children }) {
   const location = useLocation();
 
   if (!currentUser) {
-    // User chưa đăng nhập => Điều hướng về trang đăng nhập
     const url = `/login?from=${location.pathname}`;
     return <Navigate to={url} replace />;
   }

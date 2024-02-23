@@ -7,8 +7,8 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { FaPhoneAlt } from "react-icons/fa";
-import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
-import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoMail } from "react-icons/io5";
 
 export default function Footer() {
   return (
@@ -34,12 +34,12 @@ export default function Footer() {
 
               <li>
                 <span>
-                  <EmailRoundedIcon className={style.iconSize} />
+                  <IoMail className={style.iconSize} />
                   devit@gmail.com
                 </span>
               </li>
               <li>
-                <LocationOnRoundedIcon className={style.iconSize} />
+                <FaLocationDot className={style.iconSize} />
                 <span>Đà Nẵng</span>
               </li>
             </ul>
